@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="000 : Base">
+      <UniqueIdentifier>{7bfbabe1-b512-459c-bfab-8865471d80ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="000 : Base\Resource Files">
+      <UniqueIdentifier>{8e114980-c1a3-4ada-ad7c-83caadf5daeb}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+    <Filter Include="000 : Base\Shaders">
+      <UniqueIdentifier>{2c3d4c8c-5d1a-459a-a05a-a4e4b608a44e}</UniqueIdentifier>
+      <Extensions>fx;fxh;hlsl</Extensions>
+    </Filter>
+    <Filter Include="000 : Base\DXUT">
+      <UniqueIdentifier>{a43c5c25-0e86-4a20-b64a-883785ff74fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game">
+      <UniqueIdentifier>{8a6939dd-2bda-4af9-8076-5022f3e1fdce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine">
+      <UniqueIdentifier>{594015b4-7b55-4c26-8979-43f2712d7f2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Component">
+      <UniqueIdentifier>{a4cadca2-b9b1-4391-841d-b63fe0156b9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Component\Animation">
+      <UniqueIdentifier>{7db75408-a2dc-4d46-83e1-517eb57d45cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Component\Button">
+      <UniqueIdentifier>{12385ec9-7e7f-43cc-8d08-75bedf20af5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Component\Collider">
+      <UniqueIdentifier>{3b74f031-985f-40fc-8575-7a308a0a7047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Component\Renderer">
+      <UniqueIdentifier>{e8e78a9b-4eaf-41fe-9bb9-d64b763671a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Component\Renderer\Renderer2D">
+      <UniqueIdentifier>{64fa6252-3695-491c-ac2a-622f61809ba6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Component\Renderer\Renderer2D\SpriteRenderer">
+      <UniqueIdentifier>{dba9407e-9c7e-4291-ac4a-c26385b6563c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Component\Renderer\Renderer2D\Text">
+      <UniqueIdentifier>{948ed83f-d296-4b17-b40b-2b3bb51ff248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Component\Transform">
+      <UniqueIdentifier>{4b445aa3-7a4a-479c-808c-865c1a8026b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Manager">
+      <UniqueIdentifier>{3e7b28a7-5a00-4bc7-bea4-c889f70c62c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Manager\Camera">
+      <UniqueIdentifier>{f774dd9c-437f-4b0a-b53a-5d8368ba9251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Manager\Graphics">
+      <UniqueIdentifier>{547cafbe-b216-4934-818d-9d06ecc8937f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Manager\Input">
+      <UniqueIdentifier>{8d507147-1ad3-42ac-8753-4e385bcfef17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Manager\Scene">
+      <UniqueIdentifier>{cd793c69-6330-4b3e-bdf6-e7364794750e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Manager\Object">
+      <UniqueIdentifier>{c088efbb-4c28-48f3-af74-51d4242ce901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Object">
+      <UniqueIdentifier>{1cde064c-efc7-43c8-89cd-e5ecc99d3606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Scene">
+      <UniqueIdentifier>{ac27c578-4c7d-4d37-b809-2090cf7d91ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\ScheduleAdmin">
+      <UniqueIdentifier>{45664360-817f-4efc-9c73-73265dbd5bb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="001 : Engine\Sprite">
+      <UniqueIdentifier>{491d2cd3-a5a6-4399-9bbd-1496248b9f08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\Component">
+      <UniqueIdentifier>{b2c0ac3b-f009-4644-bdf1-d0f75fc6e7b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\MainGame">
+      <UniqueIdentifier>{6094c6d1-b0e5-47b2-975e-b3a3c15fedd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\Manager">
+      <UniqueIdentifier>{19e033b8-4142-4555-9dff-8a475da5a6fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\Scene">
+      <UniqueIdentifier>{2ae56d29-cb9e-4753-a71d-9410f801d5da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\Scene\000 : Load">
+      <UniqueIdentifier>{bed27bab-92ff-45e0-893e-49155b9ecc34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\Scene\001 : Title">
+      <UniqueIdentifier>{f63483b8-f639-47f2-b770-c4788affb02d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\Scene\002 : Stage1">
+      <UniqueIdentifier>{f31a257b-1ecd-430a-a15d-0c1f4b17bcd0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DXUT\Optional\directx.ico">
+      <Filter>000 : Base\Resource Files</Filter>
+    </None>
+    <ClInclude Include="DXUT\Core\DXUT.h">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Core\DXUTenum.h">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Core\DXUTmisc.h">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClInclude>
+    <ClCompile Include="DXUT\Core\DXUT.cpp">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Core\DXUTenum.cpp">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Core\DXUTmisc.cpp">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClCompile>
+    <ClInclude Include="DXUT\Optional\DXUTcamera.h">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Optional\DXUTgui.h">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Optional\DXUTres.h">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Optional\DXUTsettingsdlg.h">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Optional\SDKmesh.h">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClInclude>
+    <ClInclude Include="DXUT\Optional\SDKmisc.h">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClInclude>
+    <ClCompile Include="DXUT\Optional\DXUTcamera.cpp">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Optional\DXUTgui.cpp">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Optional\DXUTres.cpp">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Optional\DXUTsettingsdlg.cpp">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Optional\SDKmesh.cpp">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClCompile>
+    <ClCompile Include="DXUT\Optional\SDKmisc.cpp">
+      <Filter>000 : Base\DXUT</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BigDig.cpp">
+      <Filter>000 : Base</Filter>
+    </ClCompile>
+    <ClCompile Include="CObject.cpp">
+      <Filter>001 : Engine\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene.cpp">
+      <Filter>001 : Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CScheduleAdmin.cpp">
+      <Filter>001 : Engine\ScheduleAdmin</Filter>
+    </ClCompile>
+    <ClCompile Include="CSprite.cpp">
+      <Filter>001 : Engine\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="CComponent.cpp">
+      <Filter>001 : Engine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="CAnimation.cpp">
+      <Filter>001 : Engine\Component\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="CButton.cpp">
+      <Filter>001 : Engine\Component\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollider.cpp">
+      <Filter>001 : Engine\Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="CTransform.cpp">
+      <Filter>001 : Engine\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="CRenderer2D.cpp">
+      <Filter>001 : Engine\Component\Renderer\Renderer2D</Filter>
+    </ClCompile>
+    <ClCompile Include="CSpriteRenderer.cpp">
+      <Filter>001 : Engine\Component\Renderer\Renderer2D\SpriteRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="CText.cpp">
+      <Filter>001 : Engine\Component\Renderer\Renderer2D\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>001 : Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CCameraManager.cpp">
+      <Filter>001 : Engine\Manager\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CGraphicsManager.cpp">
+      <Filter>001 : Engine\Manager\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="CInputManager.cpp">
+      <Filter>001 : Engine\Manager\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="CObjectManager.cpp">
+      <Filter>001 : Engine\Manager\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneManager.cpp">
+      <Filter>001 : Engine\Manager\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameManager.cpp">
+      <Filter>002 : Game\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CMainGame.cpp">
+      <Filter>002 : Game\MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>002 : Game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="CLoadScene.cpp">
+      <Filter>002 : Game\Scene\000 : Load</Filter>
+    </ClCompile>
+    <ClCompile Include="CTitleScene.cpp">
+      <Filter>002 : Game\Scene\001 : Title</Filter>
+    </ClCompile>
+    <ClCompile Include="CStage1Scene.cpp">
+      <Filter>002 : Game\Scene\002 : Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1TileMap.cpp">
+      <Filter>002 : Game\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1Boss.cpp">
+      <Filter>002 : Game\Component</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CLInclude Include="resource.h">
+      <Filter>000 : Base\Resource Files</Filter>
+    </CLInclude>
+    <ResourceCompile Include="BigDig.rc">
+      <Filter>000 : Base\Resource Files</Filter>
+    </ResourceCompile>
+    <ClInclude Include="CObject.h">
+      <Filter>001 : Engine\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene.h">
+      <Filter>001 : Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CScheduleAdmin.h">
+      <Filter>001 : Engine\ScheduleAdmin</Filter>
+    </ClInclude>
+    <ClInclude Include="CSprite.h">
+      <Filter>001 : Engine\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="CComponent.h">
+      <Filter>001 : Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="CAnimation.h">
+      <Filter>001 : Engine\Component\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="CButton.h">
+      <Filter>001 : Engine\Component\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="CCollider.h">
+      <Filter>001 : Engine\Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="CTransform.h">
+      <Filter>001 : Engine\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="CRenderer2D.h">
+      <Filter>001 : Engine\Component\Renderer\Renderer2D</Filter>
+    </ClInclude>
+    <ClInclude Include="CSpriteRenderer.h">
+      <Filter>001 : Engine\Component\Renderer\Renderer2D\SpriteRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="CText.h">
+      <Filter>001 : Engine\Component\Renderer\Renderer2D\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>001 : Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CSingleton.h">
+      <Filter>001 : Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CCameraManager.h">
+      <Filter>001 : Engine\Manager\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CGraphicsManager.h">
+      <Filter>001 : Engine\Manager\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="CInputManager.h">
+      <Filter>001 : Engine\Manager\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="CObjectManager.h">
+      <Filter>001 : Engine\Manager\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneManager.h">
+      <Filter>001 : Engine\Manager\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>000 : Base</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameManager.h">
+      <Filter>002 : Game\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="CMainGame.h">
+      <Filter>002 : Game\MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>002 : Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="CLoadScene.h">
+      <Filter>002 : Game\Scene\000 : Load</Filter>
+    </ClInclude>
+    <ClInclude Include="CTitleScene.h">
+      <Filter>002 : Game\Scene\001 : Title</Filter>
+    </ClInclude>
+    <ClInclude Include="CStage1Scene.h">
+      <Filter>002 : Game\Scene\002 : Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1TileMap.h">
+      <Filter>002 : Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1Boss.h">
+      <Filter>002 : Game\Component</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
