@@ -23,7 +23,7 @@ private:
 		None, Up, Down, Left, Right
 	};
 	MoveRot moveRot = None;
-	int gridTemp[TILESIZEX + 2][TILESIZEY + 2];
+	int gridTemp[TILESIZEX][TILESIZEY];
 
 private:
 	void Move();

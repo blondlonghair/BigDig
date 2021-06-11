@@ -23,7 +23,7 @@ void CStage1Scene::Init()
 	pPlayer = OBJECT.AddObject(Tag::Player);
 	pPlayer->ac<CPlayer>();
 	pPlayer->ac<CCollider>()->Init(40);
-	pPlayer->tf->m_vPos = Vec2(WINSIZEX / 2, ((WINSIZEY - TILESIZEY) / 2) + 1);
+	pPlayer->tf->m_vPos = Vec2(WINSIZEX / 2, ((WINSIZEY - TILESIZEY) / 2));
 
 	pBoss = OBJECT.AddObject(Tag::Boss);
 	pBoss->ac<Stage1Boss>();

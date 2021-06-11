@@ -69,35 +69,35 @@ void Stage1TileMap::OnCollisionExit(CObject* _pObj)
 
 void Stage1TileMap::InitArray()
 {
-	for (int x = 0; x < TILESIZEX + 2; x++)
+	for (int x = 0; x < TILESIZEX; x++)
 	{
-		for (int y = 0; y < TILESIZEY + 2; y++)
+		for (int y = 0; y < TILESIZEY; y++)
 		{
 			GAME.m_Stage1Tile[x][y] = 0;
 		}
 	}
 
-	for (int i = 1; i < TILESIZEX + 1; i++)
+	for (int i = 0; i < TILESIZEX; i++)
 	{
-		GAME.m_Stage1Tile[i][1] = 1;
-		GAME.m_Stage1Tile[i][960] = 1;
+		GAME.m_Stage1Tile[i][0] = 1;
+		GAME.m_Stage1Tile[i][TILESIZEY - 1] = 1;
 	}
-	for (int i = 1; i < TILESIZEY + 1; i++)
+	for (int i = 0; i < TILESIZEY; i++)
 	{
-		GAME.m_Stage1Tile[1][i] = 1;
-		GAME.m_Stage1Tile[1800][i] = 1;
+		GAME.m_Stage1Tile[0][i] = 1;
+		GAME.m_Stage1Tile[TILESIZEX - 1][i] = 1;
 	}
 
-	for (int i = 0; i < TILESIZEX + 2; i++)
-	{
-		GAME.m_Stage1Tile[i][0] = 9;
-		GAME.m_Stage1Tile[i][961] = 9;
-	}
-	for (int i = 0; i < TILESIZEY + 2; i++)
-	{
-		GAME.m_Stage1Tile[0][i] = 9;
-		GAME.m_Stage1Tile[1801][i] = 9;
-	}
+	//for (int i = 0; i < TILESIZEX + 2; i++)
+	//{
+	//	GAME.m_Stage1Tile[i][0] = 9;
+	//	GAME.m_Stage1Tile[i][961] = 9;
+	//}
+	//for (int i = 0; i < TILESIZEY + 2; i++)
+	//{
+	//	GAME.m_Stage1Tile[0][i] = 9;
+	//	GAME.m_Stage1Tile[1801][i] = 9;
+	//}
 	//for (int y = 1; y < TILESIZEY + 1; y += TILESIZEX)
 	//{
 	//	for (int x = 1; x < TILESIZEX + 1; x++)

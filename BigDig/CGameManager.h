@@ -9,7 +9,7 @@ class CGameManager :
 {
 public:
     D3DLOCKED_RECT m_lockRect;
-    int m_Stage1Tile[TILESIZEX + 2][TILESIZEY + 2];
+    int m_Stage1Tile[TILESIZEX][TILESIZEY];
 
 public:
     CGameManager();
