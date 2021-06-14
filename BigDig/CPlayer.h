@@ -27,8 +27,9 @@ private:
 
 private:
 	void Move();
-	int MoveCheck();
+	bool MoveCheck1();
 	bool MoveCheck2();
+	bool MoveCheck3(int x, int y);
 	void DrawLine();
 	void CheckFloodFill();
 	void CheckFloodFillGrid();
