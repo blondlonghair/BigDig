@@ -23,6 +23,8 @@ void CLoadScene::Init()
 	LoadSprite("Button", "뱀");
 	LoadSprite("Stage1Boss", "우는거인");
 	LoadSprite("임시배경", "임시배경화면");
+	LoadSprite("rightHand", "오른손");
+	LoadSprite("leftHand", "오른손");
 }
 
 void CLoadScene::Update()

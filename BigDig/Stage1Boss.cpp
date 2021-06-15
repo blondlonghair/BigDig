@@ -8,6 +8,13 @@ void Stage1Boss::Awake()
 
 void Stage1Boss::Start()
 {
+	leftHand = OBJECT.AddObject(Tag::Boss);
+	leftHand->ac<CSpriteRenderer>()->Init(SPRITE("leftHand"), SortingLayer::Default, RenderMode::Default);
+	leftHand->ac<CCollider>()->Init(40);
+	leftHand->m_pParent = 
+	rightHand = OBJECT.AddObject(Tag::Boss);
+	rightHand->ac<CSpriteRenderer>()->Init(SPRITE("rightHand"), SortingLayer::Default, RenderMode::Default);
+	rightHand->ac<CCollider>()->Init(40);
 }
 
 void Stage1Boss::Update()
