@@ -7,7 +7,7 @@ public:
     CObject* pBackBG;
     CObject* pFrontBG;
     CObject* pPlayer;
-    CObject* pBoss;
+    CObject *pBoss, *LeftHand, *RightHand;
 
 public:
     CStage1Scene();

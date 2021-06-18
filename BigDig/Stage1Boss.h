@@ -14,7 +14,12 @@ public:
 	virtual void OnCollisionEnter(CObject* _pObj) override;
 	virtual void OnCollisionStay(CObject* _pObj) override;
 	virtual void OnCollisionExit(CObject* _pObj) override;
+	void Patern1();
+	void Patern2();
+	void Patern3();
 public:
 	CObject *leftHand, *rightHand;
+	int ifdsa = 0;
+
 };
 

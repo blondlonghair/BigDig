@@ -105,6 +105,8 @@ void Debug(const wchar_t* format, const T src...)
 // 수학적인 함수들을 담아두는 곳
 namespace math
 {
+	const double PI = 3.141592653589793238462643383279502884L;
+
 	// Vec3값을 오일러 쿼터니온 값으로 변환해주는 함수
 	static Quaternion GetQuaternion(Vec3 _vRotation)
 	{
@@ -146,6 +148,18 @@ namespace math
 	{
 		return  D3DXToDegree(atan2f(_vRot.y, _vRot.x));
 	}
+
+	//히히 Lerp
+	static float Lerp(float _v1, float _v2, float _time)
+	{
+		return _v1 + _time * (_v2 - _v1);
+	}
+
+	//히히 아탄2
+	static float Atan2(Vec2 _v1, Vec2 _v2)
+	{
+		return (atan2f(_v2.y - _v1.y, _v2.x - _v1.x)) * 180 / PI;
+	}
 }
 using namespace math; // 위에 std랑 같음
 
@@ -178,6 +192,7 @@ using namespace math; // 위에 std랑 같음
 #include "CPlayer.h"
 #include "Stage1TileMap.h"
 #include "Stage1Boss.h"
+#include "Stage1BossHand.h"
 
 // 매니저 및 컴포넌트 헤더파일을 가져옴
 

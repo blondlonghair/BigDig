@@ -27,8 +27,10 @@ void CStage1Scene::Init()
 
 	pBoss = OBJECT.AddObject(Tag::Boss);
 	pBoss->ac<Stage1Boss>();
-	//pBoss->ac<CCollider>()->Init(125);
+	pBoss->ac<CCollider>()->Init(125);
 	pBoss->tf->m_vPos = Vec2(WINSIZEX / 2, WINSIZEY / 2);
+
+	//LeftHand = OBJECT.AddObject(Tag::Boss);
 }
 
 void CStage1Scene::Update()

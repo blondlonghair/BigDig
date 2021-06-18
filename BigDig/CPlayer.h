@@ -25,16 +25,19 @@ private:
 	MoveRot moveRot = None;
 	int gridTemp[TILESIZEX][TILESIZEY];
 
+public:
+	bool isHit = false;
+
 private:
 	void Move();
 	bool MoveCheck1();
 	bool MoveCheck2();
-	bool MoveCheck3(int x, int y);
 	void DrawLine();
 	void CheckFloodFill();
 	void CheckFloodFillGrid();
 	void FillColor();
 	void FloodFill(int x, int y);
 	void ReturnFill(int x, int y);
+	void GoBack();
 };
 

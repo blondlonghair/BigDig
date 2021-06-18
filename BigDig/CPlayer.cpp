@@ -24,8 +24,16 @@ void CPlayer::Update()
 
 		DXUTOutputDebugStringA("dmd");
 	}
+	if (!isHit)
+	{
+		Move();
+	}
 
-	Move();
+	if (isHit)
+	{
+		GoBack();
+		isHit = false;
+	}
 }
 
 void CPlayer::LateUpdate()
@@ -58,7 +66,7 @@ void CPlayer::Move()
 		OutputDebugStringA("\nUp");
 		moveRot = MoveRot::Up;
 
-		tf->m_vPos += Vec2(0, -1) * dt * 80;
+		tf->m_vPos += Vec2(0, -1)/* * dt * 80*/;
 		tf->m_vRot = 0;
 
 		if (MoveCheck1())
@@ -70,11 +78,11 @@ void CPlayer::Move()
 		}
 		else if (!MoveCheck1())
 		{
-			tf->m_vPos += Vec2(0, 1) * dt * 80;
+			tf->m_vPos += Vec2(0, 1)/* * dt * 80*/;
 		}
 		if (!MoveCheck2())
 		{
-			tf->m_vPos += Vec2(0, 1) * dt * 80;
+			tf->m_vPos += Vec2(0, 1)/* * dt * 80*/;
 			GAME.m_Stage1Tile[xPos][yPos + 1] = 0;
 		}
 	}
@@ -83,7 +91,7 @@ void CPlayer::Move()
 		OutputDebugStringA("\nDown");
 		moveRot = MoveRot::Down;
 
-		tf->m_vPos += Vec2(0, 1) * dt * 80;
+		tf->m_vPos += Vec2(0, 1)/* * dt * 80*/;
 		tf->m_vRot = 180;
 
 		if (MoveCheck1())
@@ -95,11 +103,11 @@ void CPlayer::Move()
 		}
 		else if (!MoveCheck1())
 		{
-			tf->m_vPos += Vec2(0, -1) * dt * 80;
+			tf->m_vPos += Vec2(0, -1)/* * dt * 80*/;
 		}
 		if (!MoveCheck2())
 		{
-			tf->m_vPos += Vec2(0, -1) * dt * 80;
+			tf->m_vPos += Vec2(0, -1)/* * dt * 80*/;
 			GAME.m_Stage1Tile[xPos][yPos - 1] = 0;
 		}
 	}
@@ -108,7 +116,7 @@ void CPlayer::Move()
 		OutputDebugStringA("\nLeft");
 		moveRot = MoveRot::Left;
 
-		tf->m_vPos += Vec2(-1, 0) * dt * 80;
+		tf->m_vPos += Vec2(-1, 0)/* * dt * 80*/;
 		tf->m_vRot = 270;
 
 		if (MoveCheck1())
@@ -120,11 +128,11 @@ void CPlayer::Move()
 		}
 		else if (!MoveCheck1())
 		{
-			tf->m_vPos += Vec2(1, 0) * dt * 80;
+			tf->m_vPos += Vec2(1, 0)/* * dt * 80*/;
 		}
 		if (!MoveCheck2())
 		{
-			tf->m_vPos += Vec2(1, 0) * dt * 80;
+			tf->m_vPos += Vec2(1, 0)/* * dt * 80*/;
 			GAME.m_Stage1Tile[xPos + 1][yPos] = 0;
 		}
 	}
@@ -133,7 +141,7 @@ void CPlayer::Move()
 		OutputDebugStringA("\nRight");
 		moveRot = MoveRot::Right;
 
-		tf->m_vPos += Vec2(1, 0) * dt * 80;
+		tf->m_vPos += Vec2(1, 0)/* * dt * 80*/;
 		tf->m_vRot = 90;
 
 		if (MoveCheck1())
@@ -145,11 +153,11 @@ void CPlayer::Move()
 		}
 		else if (!MoveCheck1())
 		{
-			tf->m_vPos += Vec2(-1, 0) * dt * 80;
+			tf->m_vPos += Vec2(-1, 0)/* * dt * 80*/;
 		}
 		if (!MoveCheck2())
 		{
-			tf->m_vPos += Vec2(-1, 0) * dt * 80;
+			tf->m_vPos += Vec2(-1, 0)/* * dt * 80*/;
 			GAME.m_Stage1Tile[xPos - 1][yPos] = 0;
 		}
 	}
@@ -402,14 +410,17 @@ void CPlayer::ReturnFill(int x, int y)
 		{
 			returnQueue.push(Vec2(x + 1, y));
 		}
+
 		if (GAME.m_Stage1Tile[x - 1][y] == 3)
 		{
 			returnQueue.push(Vec2(x - 1, y));
 		}
+
 		if (GAME.m_Stage1Tile[x][y + 1] == 3)
 		{
 			returnQueue.push(Vec2(x, y + 1));
 		}
+
 		if (GAME.m_Stage1Tile[x][y - 1] == 3)
 		{
 			returnQueue.push(Vec2(x, y - 1));
@@ -418,5 +429,57 @@ void CPlayer::ReturnFill(int x, int y)
 		GAME.m_Stage1Tile[x][y] == 0;
 
 		returnQueue.pop();
+	}
+}
+
+void CPlayer::GoBack()
+{
+	GAME.m_Stage1Tile[xPos][yPos] = 0;
+
+	while ((GAME.m_Stage1Tile[xPos - 1][yPos] == 2 || GAME.m_Stage1Tile[xPos + 1][yPos] == 2 || GAME.m_Stage1Tile[xPos][yPos - 1] == 2 || GAME.m_Stage1Tile[xPos][yPos + 1] == 2))
+	{
+		xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
+		yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
+
+		if (GAME.m_Stage1Tile[xPos - 1][yPos] == 2)
+		{
+			OutputDebugStringA("GAME.m_Stage1Tile[xPos - 1][yPos] == 2\n");
+			GAME.m_Stage1Tile[xPos - 1][yPos] == 0;
+			tf->m_vPos.x -= 1;
+			//xPos -= 1;
+		}
+
+		else if (GAME.m_Stage1Tile[xPos + 1][yPos] == 2)
+		{
+			OutputDebugStringA("GAME.m_Stage1Tile[xPos + 1][yPos] == 2\n");
+			GAME.m_Stage1Tile[xPos + 1][yPos] == 0;
+			tf->m_vPos.x += 1;
+			//xPos += 1;
+		}
+
+		else if (GAME.m_Stage1Tile[xPos][yPos - 1] == 2)
+		{
+			OutputDebugStringA("GAME.m_Stage1Tile[xPos][yPos - 1] == 2\n");
+			GAME.m_Stage1Tile[xPos][yPos - 1] == 0;
+			tf->m_vPos.y -= 1;
+			//yPos -= 1;
+		}
+
+		else if (GAME.m_Stage1Tile[xPos][yPos + 1] == 2)
+		{
+			OutputDebugStringA("GAME.m_Stage1Tile[xPos][yPos + 1] == 2\n");
+			GAME.m_Stage1Tile[xPos][yPos + 1] == 0;
+			tf->m_vPos.x += 1;
+			//yPos += 1;
+		}
+
+		//char xbuffer[20];
+		//char ybuffer[20];
+		//_itoa_s(xPos, xbuffer, 20, 2);
+		//_itoa_s(yPos, ybuffer, 20, 2);
+		//LPCSTR x = xbuffer;
+		//LPCSTR y = ybuffer;
+		//OutputDebugStringA(x);
+		//OutputDebugStringA(y);
 	}
 }

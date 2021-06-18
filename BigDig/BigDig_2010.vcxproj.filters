@@ -241,6 +241,9 @@
     <ClCompile Include="Stage1Boss.cpp">
       <Filter>002 : Game\Component</Filter>
     </ClCompile>
+    <ClCompile Include="Stage1BossHand.cpp">
+      <Filter>002 : Game\Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -331,6 +334,9 @@
       <Filter>002 : Game\Component</Filter>
     </ClInclude>
     <ClInclude Include="Stage1Boss.h">
+      <Filter>002 : Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1BossHand.h">
       <Filter>002 : Game\Component</Filter>
     </ClInclude>
   </ItemGroup>
