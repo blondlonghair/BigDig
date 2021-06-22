@@ -25,6 +25,14 @@ void CLoadScene::Init()
 	LoadSprite("임시배경", "임시배경화면");
 	LoadSprite("rightHand", "오른손");
 	LoadSprite("leftHand", "왼손");
+	LoadSprite("stamp", "도장/도장", 12);
+	LoadSprite("papers", "서류와 테이프/서류와 테이프", 10);
+	LoadSprite("TitleText", "TitleText");
+	LoadSprite("TitleBG", "TitleBG");
+	for (int i = 0; i < 10; i++)
+	{
+		LoadSprite("number" + to_string(i), "숫자/" + to_string(i));
+	}
 }
 
 void CLoadScene::Update()

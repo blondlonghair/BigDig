@@ -18,15 +18,13 @@ public:
 private:
 	int xPos;
 	int yPos;
-	enum MoveRot
-	{
-		None, Up, Down, Left, Right
-	};
+	enum MoveRot { None, Up, Down, Left, Right };
 	MoveRot moveRot = None;
 	int gridTemp[TILESIZEX][TILESIZEY];
 
 public:
 	bool isHit = false;
+	int moveSpeed = 3;
 
 private:
 	void Move();
@@ -34,7 +32,7 @@ private:
 	bool MoveCheck2();
 	void DrawLine();
 	void CheckFloodFill();
-	void CheckFloodFillGrid();
+	void CheckFloodFillGrid(int x, int y);
 	void FillColor();
 	void FloodFill(int x, int y);
 	void ReturnFill(int x, int y);

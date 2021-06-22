@@ -384,15 +384,19 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="PaperAndStamp.cpp" />
     <ClCompile Include="Stage1Boss.cpp" />
-    <ClCompile Include="Stage1BossHand.cpp" />
+    <ClCompile Include="Stage1Score.cpp" />
     <ClCompile Include="Stage1TileMap.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="TitleScript.cpp" />
+    <ClInclude Include="PaperAndStamp.h" />
     <ClInclude Include="Stage1Boss.h" />
-    <ClInclude Include="Stage1BossHand.h" />
+    <ClInclude Include="Stage1Score.h" />
     <ClInclude Include="Stage1TileMap.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="TitleScript.h" />
     <None Include="DXUT\Optional\directx.ico" />
     <ClInclude Include="CAnimation.h" />
     <ClInclude Include="CButton.h" />

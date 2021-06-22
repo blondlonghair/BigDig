@@ -45,14 +45,15 @@ const int TILESIZEY = 960;
 
 // Unity의 Tag라고 생각하면 편함
 // 오브젝트의 종류를 크게크게 분류하는 기준
-enum class Tag 
+enum class Tag
 {
 	Untagged,
 	Player,
 	Enemy,
 	UI,
 	BackGround,
-	Boss
+	Boss,
+	Stage1Score
 };
 
 // Unity의 SortingLayer라고 생각하면 편함
@@ -189,10 +190,18 @@ using namespace math; // 위에 std랑 같음
 #include "CCollider.h"
 #include "CAnimation.h"
 
+//공용
+#include "PaperAndStamp.h"
+
+//타이틀 화면
+#include "TitleScript.h"
+
+//스테이지1
 #include "CPlayer.h"
 #include "Stage1TileMap.h"
 #include "Stage1Boss.h"
 #include "Stage1BossHand.h"
+#include "Stage1Score.h"
 
 // 매니저 및 컴포넌트 헤더파일을 가져옴
 

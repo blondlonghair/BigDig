@@ -99,6 +99,15 @@
     <Filter Include="002 : Game\Scene\002 : Stage1">
       <UniqueIdentifier>{f31a257b-1ecd-430a-a15d-0c1f4b17bcd0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="002 : Game\Component\Title">
+      <UniqueIdentifier>{5c00951b-ecc2-4ee9-9bbb-5a1e921ac45d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\Component\Stage1">
+      <UniqueIdentifier>{3fec002d-f9e7-44f0-a55c-b2de8a584a1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\Component\Communal">
+      <UniqueIdentifier>{ca4b38d1-361e-48c5-b216-dddf18391073}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -223,9 +232,6 @@
     <ClCompile Include="CMainGame.cpp">
       <Filter>002 : Game\MainGame</Filter>
     </ClCompile>
-    <ClCompile Include="CPlayer.cpp">
-      <Filter>002 : Game\Component</Filter>
-    </ClCompile>
     <ClCompile Include="CLoadScene.cpp">
       <Filter>002 : Game\Scene\000 : Load</Filter>
     </ClCompile>
@@ -235,14 +241,23 @@
     <ClCompile Include="CStage1Scene.cpp">
       <Filter>002 : Game\Scene\002 : Stage1</Filter>
     </ClCompile>
-    <ClCompile Include="Stage1TileMap.cpp">
-      <Filter>002 : Game\Component</Filter>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>002 : Game\Component\Stage1</Filter>
     </ClCompile>
     <ClCompile Include="Stage1Boss.cpp">
-      <Filter>002 : Game\Component</Filter>
+      <Filter>002 : Game\Component\Stage1</Filter>
     </ClCompile>
-    <ClCompile Include="Stage1BossHand.cpp">
-      <Filter>002 : Game\Component</Filter>
+    <ClCompile Include="Stage1TileMap.cpp">
+      <Filter>002 : Game\Component\Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScript.cpp">
+      <Filter>002 : Game\Component\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1Score.cpp">
+      <Filter>002 : Game\Component\Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="PaperAndStamp.cpp">
+      <Filter>002 : Game\Component\Communal</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -318,9 +333,6 @@
     <ClInclude Include="CMainGame.h">
       <Filter>002 : Game\MainGame</Filter>
     </ClInclude>
-    <ClInclude Include="CPlayer.h">
-      <Filter>002 : Game\Component</Filter>
-    </ClInclude>
     <ClInclude Include="CLoadScene.h">
       <Filter>002 : Game\Scene\000 : Load</Filter>
     </ClInclude>
@@ -330,14 +342,23 @@
     <ClInclude Include="CStage1Scene.h">
       <Filter>002 : Game\Scene\002 : Stage1</Filter>
     </ClInclude>
-    <ClInclude Include="Stage1TileMap.h">
-      <Filter>002 : Game\Component</Filter>
+    <ClInclude Include="CPlayer.h">
+      <Filter>002 : Game\Component\Stage1</Filter>
     </ClInclude>
     <ClInclude Include="Stage1Boss.h">
-      <Filter>002 : Game\Component</Filter>
+      <Filter>002 : Game\Component\Stage1</Filter>
     </ClInclude>
-    <ClInclude Include="Stage1BossHand.h">
-      <Filter>002 : Game\Component</Filter>
+    <ClInclude Include="Stage1TileMap.h">
+      <Filter>002 : Game\Component\Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScript.h">
+      <Filter>002 : Game\Component\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1Score.h">
+      <Filter>002 : Game\Component\Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="PaperAndStamp.h">
+      <Filter>002 : Game\Component\Communal</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

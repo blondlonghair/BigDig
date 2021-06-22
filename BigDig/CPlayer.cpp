@@ -63,102 +63,114 @@ void CPlayer::Move()
 {
 	if (INPUT.KeyPress(VK_UP) && moveRot != Down)
 	{
-		OutputDebugStringA("\nUp");
-		moveRot = MoveRot::Up;
+		for (int i = 0; i < moveSpeed; i++)
+		{
+			//OutputDebugStringA("\nUp");
+			moveRot = MoveRot::Up;
 
-		tf->m_vPos += Vec2(0, -1)/* * dt * 80*/;
-		tf->m_vRot = 0;
+			tf->m_vPos += Vec2(0, -1)/* * dt * 80*/;
+			tf->m_vRot = 0;
 
-		if (MoveCheck1())
-		{
-			xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
-			yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
-			DrawLine();
-			CheckFloodFill();
-		}
-		else if (!MoveCheck1())
-		{
-			tf->m_vPos += Vec2(0, 1)/* * dt * 80*/;
-		}
-		if (!MoveCheck2())
-		{
-			tf->m_vPos += Vec2(0, 1)/* * dt * 80*/;
-			GAME.m_Stage1Tile[xPos][yPos + 1] = 0;
+			if (MoveCheck1())
+			{
+				xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
+				yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
+				DrawLine();
+				CheckFloodFill();
+			}
+			else if (!MoveCheck1())
+			{
+				tf->m_vPos += Vec2(0, 1)/* * dt * 80*/;
+			}
+			if (!MoveCheck2())
+			{
+				tf->m_vPos += Vec2(0, 1)/* * dt * 80*/;
+				GAME.m_Stage1Tile[xPos][yPos + 1] = 0;
+			}
 		}
 	}
 	else if (INPUT.KeyPress(VK_DOWN) && moveRot != Up)
 	{
-		OutputDebugStringA("\nDown");
-		moveRot = MoveRot::Down;
+		for (int i = 0; i < moveSpeed; i++)
+		{
+			//OutputDebugStringA("\nDown");
+			moveRot = MoveRot::Down;
 
-		tf->m_vPos += Vec2(0, 1)/* * dt * 80*/;
-		tf->m_vRot = 180;
+			tf->m_vPos += Vec2(0, 1)/* * dt * 80*/;
+			tf->m_vRot = 180;
 
-		if (MoveCheck1())
-		{
-			xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
-			yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
-			DrawLine();
-			CheckFloodFill();
-		}
-		else if (!MoveCheck1())
-		{
-			tf->m_vPos += Vec2(0, -1)/* * dt * 80*/;
-		}
-		if (!MoveCheck2())
-		{
-			tf->m_vPos += Vec2(0, -1)/* * dt * 80*/;
-			GAME.m_Stage1Tile[xPos][yPos - 1] = 0;
+			if (MoveCheck1())
+			{
+				xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
+				yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
+				DrawLine();
+				CheckFloodFill();
+			}
+			else if (!MoveCheck1())
+			{
+				tf->m_vPos += Vec2(0, -1)/* * dt * 80*/;
+			}
+			if (!MoveCheck2())
+			{
+				tf->m_vPos += Vec2(0, -1)/* * dt * 80*/;
+				GAME.m_Stage1Tile[xPos][yPos - 1] = 0;
+			}
 		}
 	}
 	else if (INPUT.KeyPress(VK_LEFT) && moveRot != Right)
 	{
-		OutputDebugStringA("\nLeft");
-		moveRot = MoveRot::Left;
+		for (int i = 0; i < moveSpeed; i++)
+		{
+			//OutputDebugStringA("\nLeft");
+			moveRot = MoveRot::Left;
 
-		tf->m_vPos += Vec2(-1, 0)/* * dt * 80*/;
-		tf->m_vRot = 270;
+			tf->m_vPos += Vec2(-1, 0)/* * dt * 80*/;
+			tf->m_vRot = 270;
 
-		if (MoveCheck1())
-		{
-			xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
-			yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
-			DrawLine();
-			CheckFloodFill();
-		}
-		else if (!MoveCheck1())
-		{
-			tf->m_vPos += Vec2(1, 0)/* * dt * 80*/;
-		}
-		if (!MoveCheck2())
-		{
-			tf->m_vPos += Vec2(1, 0)/* * dt * 80*/;
-			GAME.m_Stage1Tile[xPos + 1][yPos] = 0;
+			if (MoveCheck1())
+			{
+				xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
+				yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
+				DrawLine();
+				CheckFloodFill();
+			}
+			else if (!MoveCheck1())
+			{
+				tf->m_vPos += Vec2(1, 0)/* * dt * 80*/;
+			}
+			if (!MoveCheck2())
+			{
+				tf->m_vPos += Vec2(1, 0)/* * dt * 80*/;
+				GAME.m_Stage1Tile[xPos + 1][yPos] = 0;
+			}
 		}
 	}
 	else if (INPUT.KeyPress(VK_RIGHT) && moveRot != Left)
 	{
-		OutputDebugStringA("\nRight");
-		moveRot = MoveRot::Right;
+		for (int i = 0; i < moveSpeed; i++)
+		{
+			//OutputDebugStringA("\nRight");
+			moveRot = MoveRot::Right;
 
-		tf->m_vPos += Vec2(1, 0)/* * dt * 80*/;
-		tf->m_vRot = 90;
+			tf->m_vPos += Vec2(1, 0)/* * dt * 80*/;
+			tf->m_vRot = 90;
 
-		if (MoveCheck1())
-		{
-			xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
-			yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
-			DrawLine();
-			CheckFloodFill();
-		}
-		else if (!MoveCheck1())
-		{
-			tf->m_vPos += Vec2(-1, 0)/* * dt * 80*/;
-		}
-		if (!MoveCheck2())
-		{
-			tf->m_vPos += Vec2(-1, 0)/* * dt * 80*/;
-			GAME.m_Stage1Tile[xPos - 1][yPos] = 0;
+			if (MoveCheck1())
+			{
+				xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
+				yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
+				DrawLine();
+				CheckFloodFill();
+			}
+			else if (!MoveCheck1())
+			{
+				tf->m_vPos += Vec2(-1, 0)/* * dt * 80*/;
+			}
+			if (!MoveCheck2())
+			{
+				tf->m_vPos += Vec2(-1, 0)/* * dt * 80*/;
+				GAME.m_Stage1Tile[xPos - 1][yPos] = 0;
+			}
 		}
 	}
 }
@@ -168,12 +180,15 @@ bool CPlayer::MoveCheck1()
 	int xTemp = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
 	int yTemp = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
 
-	if ((yTemp < 0 || yTemp > TILESIZEY - 1 || xTemp < 0 || xTemp > TILESIZEX - 1))
+	if ((yTemp < 0 || yTemp > TILESIZEY - 1 || xTemp < 0 || xTemp > TILESIZEX - 1) || GAME.m_Stage1Tile[xTemp][yTemp] == 3)
 	{
 		return false;
 	}
 
-	return true;
+	if (GAME.m_Stage1Tile[xTemp][yTemp] == 2 || GAME.m_Stage1Tile[xTemp][yTemp] == 1)
+	{
+		return true;
+	}
 }
 
 bool CPlayer::MoveCheck2()
@@ -248,57 +263,57 @@ void CPlayer::CheckFloodFill()
 	case CPlayer::Up:
 		if (GAME.m_Stage1Tile[xPos][yPos] == 2 && GAME.m_Stage1Tile[xPos][yPos - 1] == 1)
 		{
-			CheckFloodFillGrid();
+			CheckFloodFillGrid(1, 1);
 			tf->m_vPos.y -= 1;
 		}
 		break;
 	case CPlayer::Down:
 		if (GAME.m_Stage1Tile[xPos][yPos] == 2 && GAME.m_Stage1Tile[xPos][yPos + 1] == 1)
 		{
-			CheckFloodFillGrid();
+			CheckFloodFillGrid(1, 1);
 			tf->m_vPos.y += 1;
 		}
 		break;
 	case CPlayer::Left:
 		if (GAME.m_Stage1Tile[xPos][yPos] == 2 && GAME.m_Stage1Tile[xPos - 1][yPos] == 1)
 		{
-			CheckFloodFillGrid();
+			CheckFloodFillGrid(1, 1);
 			tf->m_vPos.x -= 1;
 		}
 		break;
 	case CPlayer::Right:
 		if (GAME.m_Stage1Tile[xPos][yPos] == 2 && GAME.m_Stage1Tile[xPos + 1][yPos] == 1)
 		{
-			CheckFloodFillGrid();
+			CheckFloodFillGrid(1, 1);
 			tf->m_vPos.x += 1;
 		}
 		break;
 	}
 }
 
-void CPlayer::CheckFloodFillGrid()
+void CPlayer::CheckFloodFillGrid(int x, int y)
 {
-	if (GAME.m_Stage1Tile[xPos - 1][yPos - 1] == 0)
+	if (GAME.m_Stage1Tile[xPos - x][yPos - y] == 0)
 	{
-		FloodFill(xPos - 1, yPos - 1);
+		FloodFill(xPos - x, yPos - y);
 		FillColor();
 	}
 
-	if (GAME.m_Stage1Tile[xPos + 1][yPos - 1] == 0)
+	if (GAME.m_Stage1Tile[xPos + x][yPos - y] == 0)
 	{
-		FloodFill(xPos + 1, yPos - 1);
+		FloodFill(xPos + x, yPos - y);
 		FillColor();
 	}
 
-	if (GAME.m_Stage1Tile[xPos - 1][yPos + 1] == 0)
+	if (GAME.m_Stage1Tile[xPos - x][yPos + y] == 0)
 	{
-		FloodFill(xPos - 1, yPos + 1);
+		FloodFill(xPos - x, yPos + y);
 		FillColor();
 	}
 
-	if (GAME.m_Stage1Tile[xPos + 1][yPos + 1] == 0)
+	if (GAME.m_Stage1Tile[xPos + x][yPos + y] == 0)
 	{
-		FloodFill(xPos + 1, yPos + 1);
+		FloodFill(xPos + x, yPos + y);
 		FillColor();
 	}
 }
@@ -327,6 +342,9 @@ void CPlayer::FillColor()
 	}
 
 	SPRITE("Stage1FrontBG")->m_pTexture->UnlockRect(0);
+
+	CObject* text = OBJECT.Find(Tag::Stage1Score);
+	text->gc<Stage1Score>()->UpdateScore();
 }
 
 void CPlayer::FloodFill(int x, int y)
@@ -434,6 +452,8 @@ void CPlayer::ReturnFill(int x, int y)
 
 void CPlayer::GoBack()
 {
+	tf->gc<CCollider>()->m_bEnable = false;
+
 	GAME.m_Stage1Tile[xPos][yPos] = 0;
 
 	while ((GAME.m_Stage1Tile[xPos - 1][yPos] == 2 || GAME.m_Stage1Tile[xPos + 1][yPos] == 2 || GAME.m_Stage1Tile[xPos][yPos - 1] == 2 || GAME.m_Stage1Tile[xPos][yPos + 1] == 2))
@@ -443,7 +463,7 @@ void CPlayer::GoBack()
 
 		if (GAME.m_Stage1Tile[xPos - 1][yPos] == 2)
 		{
-			OutputDebugStringA("GAME.m_Stage1Tile[xPos - 1][yPos] == 2\n");
+			//OutputDebugStringA("GAME.m_Stage1Tile[xPos - 1][yPos] == 2\n");
 			GAME.m_Stage1Tile[xPos - 1][yPos] == 0;
 			tf->m_vPos.x -= 1;
 			//xPos -= 1;
@@ -451,7 +471,7 @@ void CPlayer::GoBack()
 
 		else if (GAME.m_Stage1Tile[xPos + 1][yPos] == 2)
 		{
-			OutputDebugStringA("GAME.m_Stage1Tile[xPos + 1][yPos] == 2\n");
+			//OutputDebugStringA("GAME.m_Stage1Tile[xPos + 1][yPos] == 2\n");
 			GAME.m_Stage1Tile[xPos + 1][yPos] == 0;
 			tf->m_vPos.x += 1;
 			//xPos += 1;
@@ -459,7 +479,7 @@ void CPlayer::GoBack()
 
 		else if (GAME.m_Stage1Tile[xPos][yPos - 1] == 2)
 		{
-			OutputDebugStringA("GAME.m_Stage1Tile[xPos][yPos - 1] == 2\n");
+			//OutputDebugStringA("GAME.m_Stage1Tile[xPos][yPos - 1] == 2\n");
 			GAME.m_Stage1Tile[xPos][yPos - 1] == 0;
 			tf->m_vPos.y -= 1;
 			//yPos -= 1;
@@ -467,10 +487,15 @@ void CPlayer::GoBack()
 
 		else if (GAME.m_Stage1Tile[xPos][yPos + 1] == 2)
 		{
-			OutputDebugStringA("GAME.m_Stage1Tile[xPos][yPos + 1] == 2\n");
+			//OutputDebugStringA("GAME.m_Stage1Tile[xPos][yPos + 1] == 2\n");
 			GAME.m_Stage1Tile[xPos][yPos + 1] == 0;
 			tf->m_vPos.x += 1;
 			//yPos += 1;
+		}
+
+		else
+		{
+			break;
 		}
 
 		//char xbuffer[20];
