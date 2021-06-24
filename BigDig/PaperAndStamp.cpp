@@ -22,6 +22,8 @@ void PaperAndStamp::Update()
 {
 	if (INPUT.KeyDown(VK_SPACE))
 	{
+		GAME.isStart = true;
+		//천천히 사라지게 바꾸기
 		papers->Destroy();
 		stamp->Destroy();
 	}

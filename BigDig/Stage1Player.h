@@ -1,7 +1,7 @@
 #pragma once
 #include "CComponent.h"
 
-class CPlayer :
+class Stage1Player :
     public CComponent
 {
 public:
@@ -15,6 +15,10 @@ public:
 	virtual void OnCollisionStay(CObject* _pObj) override;
 	virtual void OnCollisionExit(CObject* _pObj) override;
 
+	//1 : 밖에 선
+	//2 : 긋고있는 선
+	//3 : 채워지는 면
+	//4 : 다 그은 선
 private:
 	int xPos;
 	int yPos;
@@ -24,7 +28,7 @@ private:
 
 public:
 	bool isHit = false;
-	int moveSpeed = 3;
+	int moveSpeed = 2;
 
 private:
 	void Move();

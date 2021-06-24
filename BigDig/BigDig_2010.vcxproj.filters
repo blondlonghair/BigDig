@@ -99,14 +99,20 @@
     <Filter Include="002 : Game\Scene\002 : Stage1">
       <UniqueIdentifier>{f31a257b-1ecd-430a-a15d-0c1f4b17bcd0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="002 : Game\Component\Title">
-      <UniqueIdentifier>{5c00951b-ecc2-4ee9-9bbb-5a1e921ac45d}</UniqueIdentifier>
+    <Filter Include="002 : Game\Component\Communal">
+      <UniqueIdentifier>{ca4b38d1-361e-48c5-b216-dddf18391073}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\Component\Stage2">
+      <UniqueIdentifier>{5068cfa9-1f64-4f53-a68d-1fed4cb95d70}</UniqueIdentifier>
     </Filter>
     <Filter Include="002 : Game\Component\Stage1">
       <UniqueIdentifier>{3fec002d-f9e7-44f0-a55c-b2de8a584a1b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="002 : Game\Component\Communal">
-      <UniqueIdentifier>{ca4b38d1-361e-48c5-b216-dddf18391073}</UniqueIdentifier>
+    <Filter Include="002 : Game\Component\Title">
+      <UniqueIdentifier>{5c00951b-ecc2-4ee9-9bbb-5a1e921ac45d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="002 : Game\Scene\003 : Stage2">
+      <UniqueIdentifier>{98ba6b74-6864-4991-8040-0b9016b4ffad}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -241,7 +247,7 @@
     <ClCompile Include="CStage1Scene.cpp">
       <Filter>002 : Game\Scene\002 : Stage1</Filter>
     </ClCompile>
-    <ClCompile Include="CPlayer.cpp">
+    <ClCompile Include="Stage1Player.cpp">
       <Filter>002 : Game\Component\Stage1</Filter>
     </ClCompile>
     <ClCompile Include="Stage1Boss.cpp">
@@ -258,6 +264,21 @@
     </ClCompile>
     <ClCompile Include="PaperAndStamp.cpp">
       <Filter>002 : Game\Component\Communal</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2Player.cpp">
+      <Filter>002 : Game\Component\Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2Boss.cpp">
+      <Filter>002 : Game\Component\Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2Score.cpp">
+      <Filter>002 : Game\Component\Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2TileMap.cpp">
+      <Filter>002 : Game\Component\Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="CStage2Scene.cpp">
+      <Filter>002 : Game\Scene\003 : Stage2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -342,7 +363,7 @@
     <ClInclude Include="CStage1Scene.h">
       <Filter>002 : Game\Scene\002 : Stage1</Filter>
     </ClInclude>
-    <ClInclude Include="CPlayer.h">
+    <ClInclude Include="Stage1Player.h">
       <Filter>002 : Game\Component\Stage1</Filter>
     </ClInclude>
     <ClInclude Include="Stage1Boss.h">
@@ -359,6 +380,21 @@
     </ClInclude>
     <ClInclude Include="PaperAndStamp.h">
       <Filter>002 : Game\Component\Communal</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2Player.h">
+      <Filter>002 : Game\Component\Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2Boss.h">
+      <Filter>002 : Game\Component\Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2Score.h">
+      <Filter>002 : Game\Component\Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2TileMap.h">
+      <Filter>002 : Game\Component\Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="CStage2Scene.h">
+      <Filter>002 : Game\Scene\003 : Stage2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -87,48 +87,6 @@ void Stage1TileMap::InitArray()
 		GAME.m_Stage1Tile[0][i] = 1;
 		GAME.m_Stage1Tile[TILESIZEX - 1][i] = 1;
 	}
-
-	//for (int i = 0; i < TILESIZEX + 2; i++)
-	//{
-	//	GAME.m_Stage1Tile[i][0] = 9;
-	//	GAME.m_Stage1Tile[i][961] = 9;
-	//}
-	//for (int i = 0; i < TILESIZEY + 2; i++)
-	//{
-	//	GAME.m_Stage1Tile[0][i] = 9;
-	//	GAME.m_Stage1Tile[1801][i] = 9;
-	//}
-	//for (int y = 1; y < TILESIZEY + 1; y += TILESIZEX)
-	//{
-	//	for (int x = 1; x < TILESIZEX + 1; x++)
-	//	{
-	//		GAME.m_Stage1Tile[x][y] = 1;
-	//	}
-	//}
-
-	//for (int x = 1; x < TILESIZEX + 1; x += TILESIZEX)
-	//{
-	//	for (int y = 1; y < TILESIZEY + 1; y++)
-	//	{
-	//		GAME.m_Stage1Tile[x][y] = 1;
-	//	}
-	//}
-
-	//for (int x = 0; x < TILESIZEX + 2; x += (TILESIZEX + 2))
-	//{
-	//	for (int y = 0; y < TILESIZEY + 2; y++)
-	//	{
-	//		GAME.m_Stage1Tile[x][y] = 9;
-	//	}
-	//}
-
-	//for (int y = 0; y < TILESIZEY + 2; y += (TILESIZEX + 2))
-	//{
-	//	for (int x = 0; x < TILESIZEX + 2; x++)
-	//	{
-	//		GAME.m_Stage1Tile[x][y] = 9;
-	//	}
-	//}
 }
 
 void Stage1TileMap::UpdateLockRect()

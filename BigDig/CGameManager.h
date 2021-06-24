@@ -11,6 +11,7 @@ public:
     D3DLOCKED_RECT m_lockRect;
     int m_Stage1Tile[TILESIZEX][TILESIZEY];
     int m_playerLife = 3;
+    bool isStart = false;
 
 public:
     CGameManager();

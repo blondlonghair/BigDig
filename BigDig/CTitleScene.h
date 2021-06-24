@@ -3,6 +3,9 @@
 class CTitleScene :
 	public CScene
 {
+private:
+	int tilePersent = 0;
+
 public:
 	CTitleScene();
 	~CTitleScene();

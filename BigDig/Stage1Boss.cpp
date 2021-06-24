@@ -49,7 +49,7 @@ void Stage1Boss::OnCollisionEnter(CObject* _pObj)
 {
 	if (_pObj->m_Tag == Tag::Player)
 	{
-		_pObj->gc<CPlayer>()->isHit = true;
+		_pObj->gc<Stage1Player>()->isHit = true;
 		GAME.m_playerLife--;
 	}
 }

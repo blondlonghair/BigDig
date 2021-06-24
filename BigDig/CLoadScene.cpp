@@ -33,6 +33,7 @@ void CLoadScene::Init()
 	{
 		LoadSprite("number" + to_string(i), "¼ıÀÚ/" + to_string(i));
 	}
+	LoadSprite("Heart", "heart");
 }
 
 void CLoadScene::Update()

@@ -32,7 +32,7 @@ using Color = D3DXCOLOR;
 // 기본적인 default값 변수들
 const int WINSIZEX = 1920;  // 프로그램 X사이즈
 const int WINSIZEY = 1080;   // 프로그램 Y사이즈
-const bool WINDOWED = true; // 창모드로 할 것인가 ?
+const bool WINDOWED = false; // 창모드로 할 것인가 ?
 
 const int TILESIZEX = 1800;
 const int TILESIZEY = 960;
@@ -53,7 +53,8 @@ enum class Tag
 	UI,
 	BackGround,
 	Boss,
-	Stage1Score
+	Stage1Score,
+	PlayerLife
 };
 
 // Unity의 SortingLayer라고 생각하면 편함
@@ -197,11 +198,16 @@ using namespace math; // 위에 std랑 같음
 #include "TitleScript.h"
 
 //스테이지1
-#include "CPlayer.h"
+#include "Stage1Player.h"
 #include "Stage1TileMap.h"
 #include "Stage1Boss.h"
-#include "Stage1BossHand.h"
 #include "Stage1Score.h"
+
+//스테이지2
+#include "Stage2Boss.h"
+#include "Stage2Player.h"
+#include "Stage2Score.h"
+#include "Stage2TileMap.h"
 
 // 매니저 및 컴포넌트 헤더파일을 가져옴
 

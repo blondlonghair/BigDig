@@ -11,9 +11,12 @@ void TitleScript::Start()
 
 void TitleScript::Update()
 {
-	if (INPUT.KeyDown('A'))
+	for (int i = 0; i < 165; i++)
 	{
-		SCENE.ChangeScene("STAGE1");
+		if (INPUT.KeyDown(i))
+		{
+			SCENE.ChangeScene("STAGE1");
+		}
 	}
 }
 

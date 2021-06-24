@@ -1,16 +1,8 @@
 #pragma once
 #include "CComponent.h"
-class Stage1Score :
+class Stage2Player :
     public CComponent
 {
-public:
-    int persentage = 0;
-
-private:
-    CObject* firstVal;
-    CObject* secondVal;
-
-private:
     // CComponent을(를) 통해 상속됨
     virtual void Awake() override;
     virtual void Start() override;
@@ -21,8 +13,5 @@ private:
     virtual void OnCollisionEnter(CObject* _pObj) override;
     virtual void OnCollisionStay(CObject* _pObj) override;
     virtual void OnCollisionExit(CObject* _pObj) override;
-
-public:
-    void UpdateScore();
 };
 

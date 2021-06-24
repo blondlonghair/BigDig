@@ -7,9 +7,9 @@ void Stage1Score::Awake()
 	firstVal->ac<CSpriteRenderer>()->Init(SPRITE("number0"), SortingLayer::UI, RenderMode::UI);
 	firstVal->tf->m_vPos = Vec2(50, 75);
 
-	SecondVal = OBJECT.AddObject(Tag::UI);
-	SecondVal->ac<CSpriteRenderer>()->Init(SPRITE("number0"), SortingLayer::UI, RenderMode::UI);
-	SecondVal->tf->m_vPos = Vec2(150, 75);
+	secondVal = OBJECT.AddObject(Tag::UI);
+	secondVal->ac<CSpriteRenderer>()->Init(SPRITE("number0"), SortingLayer::UI, RenderMode::UI);
+	secondVal->tf->m_vPos = Vec2(150, 75);
 }
 
 void Stage1Score::Start()
@@ -61,25 +61,34 @@ void Stage1Score::UpdateScore()
 
 	persentage = value / TILESIZEX * TILESIZEY * 100;
 	
+	int num1 = persentage /= 10;
+	int num2 = persentage % 10;
+
+	//OutputDebugStringA(num1);
+	//OutputDebugStringA(num2);
+
+	//firstVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number" + num1);
+	//secondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number" + num2);
+
 	string Temp = to_string(persentage);
 	for (int i = 0; i < 10; i++)
 	{
-		if (Temp[0] == i)
+		if (num1 == i)
 		{
 			firstVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number" + i);
 		}
 
-		if (Temp[1] == i)
+		if (num2 == i)
 		{
-			SecondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number" + i);
+			secondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number" + i);
 		}
 
-		else
-		{
-			firstVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number9");
-			SecondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number9");
-		}
 	}
-	LPCWSTR ch = (LPCWSTR)Temp.c_str();
-	OutputDebugString(ch);
+		//else
+		//{
+		//	firstVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number9");
+		//	secondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number9");
+		//}
+	LPCSTR ch = (LPCSTR)Temp.c_str();
+	OutputDebugStringA(ch + '\n');
 }

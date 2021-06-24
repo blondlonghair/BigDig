@@ -1,16 +1,16 @@
 #include "DXUT.h"
-#include "CPlayer.h"
+#include "Stage1Player.h"
 
-void CPlayer::Awake()
+void Stage1Player::Awake()
 {
 	ac<CSpriteRenderer>()->Init(SPRITE("PLAYER"), SortingLayer::Default, RenderMode::Default);
 }
 
-void CPlayer::Start()
+void Stage1Player::Start()
 {
 }
 
-void CPlayer::Update()
+void Stage1Player::Update()
 {
 	if (INPUT.KeyDown('S'))
 	{
@@ -24,42 +24,42 @@ void CPlayer::Update()
 
 		DXUTOutputDebugStringA("dmd");
 	}
-	if (!isHit)
+	if (!isHit && GAME.isStart)
 	{
 		Move();
 	}
 
 	if (isHit)
 	{
-		GoBack();
+		//GoBack();
 		isHit = false;
 	}
 }
 
-void CPlayer::LateUpdate()
+void Stage1Player::LateUpdate()
 {
 }
 
-void CPlayer::OnRender()
+void Stage1Player::OnRender()
 {
 }
 
-void CPlayer::OnDestroy()
+void Stage1Player::OnDestroy()
 {
 }
 
-void CPlayer::OnCollisionEnter(CObject* _pObj)
+void Stage1Player::OnCollisionEnter(CObject* _pObj)
 {
 }
-void CPlayer::OnCollisionStay(CObject* _pObj)
-{
-}
-
-void CPlayer::OnCollisionExit(CObject* _pObj)
+void Stage1Player::OnCollisionStay(CObject* _pObj)
 {
 }
 
-void CPlayer::Move()
+void Stage1Player::OnCollisionExit(CObject* _pObj)
+{
+}
+
+void Stage1Player::Move()
 {
 	if (INPUT.KeyPress(VK_UP) && moveRot != Down)
 	{
@@ -175,7 +175,7 @@ void CPlayer::Move()
 	}
 }
 
-bool CPlayer::MoveCheck1()
+bool Stage1Player::MoveCheck1()
 {
 	int xTemp = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
 	int yTemp = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
@@ -191,7 +191,7 @@ bool CPlayer::MoveCheck1()
 	}
 }
 
-bool CPlayer::MoveCheck2()
+bool Stage1Player::MoveCheck2()
 {
 	if (xPos + 2 <= TILESIZEX - 1 && xPos - 2 >= 0 && yPos + 2 <= TILESIZEY - 1 && yPos - 2 >= 0)
 	{
@@ -216,7 +216,7 @@ bool CPlayer::MoveCheck2()
 	return true;
 }
 
-void CPlayer::DrawLine()
+void Stage1Player::DrawLine()
 {
 	int xLine = xPos;
 	int yLine = yPos;
@@ -256,32 +256,32 @@ void CPlayer::DrawLine()
 	}
 }
 
-void CPlayer::CheckFloodFill()
+void Stage1Player::CheckFloodFill()
 {
 	switch (moveRot)
 	{
-	case CPlayer::Up:
+	case Stage1Player::Up:
 		if (GAME.m_Stage1Tile[xPos][yPos] == 2 && GAME.m_Stage1Tile[xPos][yPos - 1] == 1)
 		{
 			CheckFloodFillGrid(1, 1);
 			tf->m_vPos.y -= 1;
 		}
 		break;
-	case CPlayer::Down:
+	case Stage1Player::Down:
 		if (GAME.m_Stage1Tile[xPos][yPos] == 2 && GAME.m_Stage1Tile[xPos][yPos + 1] == 1)
 		{
 			CheckFloodFillGrid(1, 1);
 			tf->m_vPos.y += 1;
 		}
 		break;
-	case CPlayer::Left:
+	case Stage1Player::Left:
 		if (GAME.m_Stage1Tile[xPos][yPos] == 2 && GAME.m_Stage1Tile[xPos - 1][yPos] == 1)
 		{
 			CheckFloodFillGrid(1, 1);
 			tf->m_vPos.x -= 1;
 		}
 		break;
-	case CPlayer::Right:
+	case Stage1Player::Right:
 		if (GAME.m_Stage1Tile[xPos][yPos] == 2 && GAME.m_Stage1Tile[xPos + 1][yPos] == 1)
 		{
 			CheckFloodFillGrid(1, 1);
@@ -291,7 +291,7 @@ void CPlayer::CheckFloodFill()
 	}
 }
 
-void CPlayer::CheckFloodFillGrid(int x, int y)
+void Stage1Player::CheckFloodFillGrid(int x, int y)
 {
 	if (GAME.m_Stage1Tile[xPos - x][yPos - y] == 0)
 	{
@@ -318,12 +318,23 @@ void CPlayer::CheckFloodFillGrid(int x, int y)
 	}
 }
 
-void CPlayer::FillColor()
+void Stage1Player::FillColor()
 {
 	SPRITE("Stage1FrontBG")->m_pTexture->LockRect(0, &GAME.m_lockRect, 0, D3DLOCK_DISCARD);
 
 	DWORD* pColor = (DWORD*)GAME.m_lockRect.pBits;
 	D3DXCOLOR color = { 0, 0, 0, 0 };
+
+	for (int x = 1; x < TILESIZEX - 1; x++)
+	{
+		for (int y = 1; y < TILESIZEY - 1; y++)
+		{
+			if (GAME.m_Stage1Tile[x][y] == 1 && (!GAME.m_Stage1Tile[x + 1][y] == 0 && !GAME.m_Stage1Tile[x - 1][y] == 0 && !GAME.m_Stage1Tile[x][y + 1] == 0 && !GAME.m_Stage1Tile[x][y - 1] == 0))
+			{
+				GAME.m_Stage1Tile[x][y] = 3;
+			}
+		}
+	}
 
 	for (int x = 0; x < TILESIZEX; x++)
 	{
@@ -338,6 +349,7 @@ void CPlayer::FillColor()
 			{
 				GAME.m_Stage1Tile[x][y] = 1;
 			}
+
 		}
 	}
 
@@ -347,7 +359,7 @@ void CPlayer::FillColor()
 	text->gc<Stage1Score>()->UpdateScore();
 }
 
-void CPlayer::FloodFill(int x, int y)
+void Stage1Player::FloodFill(int x, int y)
 {
 	for (int x = 0; x < TILESIZEX; x++)
 	{
@@ -417,7 +429,7 @@ void CPlayer::FloodFill(int x, int y)
 	}
 }
 
-void CPlayer::ReturnFill(int x, int y)
+void Stage1Player::ReturnFill(int x, int y)
 {
 	queue<Vec2> returnQueue;
 	returnQueue.push(Vec2(x, y));
@@ -450,7 +462,7 @@ void CPlayer::ReturnFill(int x, int y)
 	}
 }
 
-void CPlayer::GoBack()
+void Stage1Player::GoBack()
 {
 	tf->gc<CCollider>()->m_bEnable = false;
 
