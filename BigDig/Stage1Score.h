@@ -4,7 +4,7 @@ class Stage1Score :
     public CComponent
 {
 public:
-    int persentage = 0;
+    //int persentage;
 
 private:
     CObject* firstVal;

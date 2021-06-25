@@ -19,7 +19,6 @@ public:
 	void Patern3();
 public:
 	CObject *leftHand, *rightHand;
-	int ifdsa = 0;
-
+	//int ifdsa = 0;
 };
 

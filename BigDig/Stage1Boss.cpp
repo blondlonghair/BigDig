@@ -64,7 +64,7 @@ void Stage1Boss::OnCollisionExit(CObject* _pObj)
 
 void Stage1Boss::Patern1()
 {
-	leftHand->tf->m_vRot = ifdsa;
+	//leftHand->tf->m_vRot = ifdsa;
 }
 
 void Stage1Boss::Patern2()

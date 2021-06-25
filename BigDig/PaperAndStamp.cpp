@@ -22,10 +22,13 @@ void PaperAndStamp::Update()
 {
 	if (INPUT.KeyDown(VK_SPACE))
 	{
+		if (!GAME.isStart)
+		{
+			//천천히 사라지게 바꾸기
+			papers->Destroy();
+			stamp->Destroy();
+		}
 		GAME.isStart = true;
-		//천천히 사라지게 바꾸기
-		papers->Destroy();
-		stamp->Destroy();
 	}
 }
 
