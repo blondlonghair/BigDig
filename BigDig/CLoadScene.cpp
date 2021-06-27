@@ -29,21 +29,19 @@ void CLoadScene::Init()
 	LoadSprite("papers", "서류와 테이프/서류와 테이프", 10);
 	LoadSprite("TitleText", "TitleText");
 	LoadSprite("TitleBG", "TitleBG");
-	LoadSprite("number0", "숫자./0");
-	LoadSprite("number1", "숫자./1");
-	LoadSprite("number2", "숫자./2");
-	LoadSprite("number3", "숫자./3");
-	LoadSprite("number4", "숫자./4");
-	LoadSprite("number5", "숫자./5");
-	LoadSprite("number6", "숫자./6");
-	LoadSprite("number7", "숫자./7");
-	LoadSprite("number8", "숫자./8");
-	LoadSprite("number9", "숫자./9");
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	LoadSprite("number" + to_string(i), "숫자/" + to_string(i));
-	//}
+	LoadSprite("number0", "숫자/0");
+	LoadSprite("number1", "숫자/1");
+	LoadSprite("number2", "숫자/2");
+	LoadSprite("number3", "숫자/3");
+	LoadSprite("number4", "숫자/4");
+	LoadSprite("number5", "숫자/5");
+	LoadSprite("number6", "숫자/6");
+	LoadSprite("number7", "숫자/7");
+	LoadSprite("number8", "숫자/8");
+	LoadSprite("number9", "숫자/9");
+	LoadSprite("Persent", "숫자/Persent");
 	LoadSprite("Heart", "heart");
+	LoadSprite("continueText", "TitleContinueText");
 }
 
 void CLoadScene::Update()

@@ -9,8 +9,10 @@ class CGameManager :
 {
 public:
     D3DLOCKED_RECT m_lockRect;
-    int m_Stage1Tile[TILESIZEX][TILESIZEY];
     int m_playerLife = 3;
+    int m_Stage1Tile[TILESIZEX][TILESIZEY];
+    int m_Stage2Tile[TILESIZEX][TILESIZEY];
+    int m_Stage3Tile[TILESIZEX][TILESIZEY];
     bool isStart = false;
 
 public:
@@ -19,7 +21,6 @@ public:
 
 public:
     void Reset();
-    void FloodFill();
 };
 
 #define GAME (*CGameManager::GetInstance())

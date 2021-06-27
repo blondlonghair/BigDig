@@ -3,6 +3,8 @@
 #include "CLoadScene.h"
 #include "CTitleScene.h"
 #include "CStage1Scene.h"
+#include "CStage2Scene.h"
+#include "CStage3Scene.h"
 
 CMainGame::CMainGame()
 {
@@ -19,6 +21,8 @@ void CMainGame::Init()
 	SCENE.AddScene("LOAD", new CLoadScene());
 	SCENE.AddScene("TITLE", new CTitleScene());
 	SCENE.AddScene("STAGE1", new CStage1Scene());
+	SCENE.AddScene("STAGE2", new CStage2Scene());
+	SCENE.AddScene("STAGE3", new CStage3Scene());
 
 	// 텍스쳐를 로드해야하기 때문에 로딩씬으로 먼저감
 	SCENE.ChangeScene("LOAD");

@@ -114,6 +114,9 @@
     <Filter Include="002 : Game\Scene\003 : Stage2">
       <UniqueIdentifier>{98ba6b74-6864-4991-8040-0b9016b4ffad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="002 : Game\Scene\004 : Stage3">
+      <UniqueIdentifier>{d17a57be-9923-4d1f-93d8-e03425e772c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -259,7 +262,7 @@
     <ClCompile Include="TitleScript.cpp">
       <Filter>002 : Game\Component\Title</Filter>
     </ClCompile>
-    <ClCompile Include="Stage1Score.cpp">
+    <ClCompile Include="Stage1UI.cpp">
       <Filter>002 : Game\Component\Stage1</Filter>
     </ClCompile>
     <ClCompile Include="PaperAndStamp.cpp">
@@ -279,6 +282,9 @@
     </ClCompile>
     <ClCompile Include="CStage2Scene.cpp">
       <Filter>002 : Game\Scene\003 : Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="CStage3Scene.cpp">
+      <Filter>002 : Game\Scene\004 : Stage3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -375,7 +381,7 @@
     <ClInclude Include="TitleScript.h">
       <Filter>002 : Game\Component\Title</Filter>
     </ClInclude>
-    <ClInclude Include="Stage1Score.h">
+    <ClInclude Include="Stage1UI.h">
       <Filter>002 : Game\Component\Stage1</Filter>
     </ClInclude>
     <ClInclude Include="PaperAndStamp.h">
@@ -395,6 +401,9 @@
     </ClInclude>
     <ClInclude Include="CStage2Scene.h">
       <Filter>002 : Game\Scene\003 : Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="CStage3Scene.h">
+      <Filter>002 : Game\Scene\004 : Stage3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -17,7 +17,7 @@ void CTitleScene::Init()
 	titleBG->ac<CSpriteRenderer>()->Init(SPRITE("TitleBG"), SortingLayer::Default, RenderMode::Default);
 	titleBG->tf->m_vPos = Vec2(WINSIZEX / 2, WINSIZEY / 2);
 
-	CObject* titleText = OBJECT.AddObject(Tag::Untagged);
+	CObject* titleText = OBJECT.AddObject(Tag::UI);
 	titleText->ac<CSpriteRenderer>()->Init(SPRITE("TitleText"), SortingLayer::Default, RenderMode::Default);
 	titleText->tf->m_vPos = Vec2(WINSIZEX / 2, WINSIZEY / 2);
 
@@ -25,22 +25,16 @@ void CTitleScene::Init()
 	//playButton->ac<CButton>()->Init(Vec2(WINSIZEX / 2, WINSIZEY / 2),
 	//	Vec2(1, 1), SPRITE("Button"), [=]()->void { SCENE.ChangeScene("STAGE1"); });
 
-	CObject* emptyObj = OBJECT.AddObject(Tag::Untagged);
-	emptyObj->ac<TitleScript>();
+	CObject* keyPressObj = OBJECT.AddObject(Tag::Untagged);
+	keyPressObj->ac<TitleScript>();
+
+	CObject* continueText = OBJECT.AddObject(Tag::UI);
+	continueText->ac<CSpriteRenderer>()->Init(SPRITE("continueText"), SortingLayer::UI, RenderMode::UI);
+	continueText->tf->m_vPos = Vec2(WINSIZEX / 2, WINSIZEY / 2);
 }
 
 void CTitleScene::Update()
 {
-	//for (int x = 0; x < TILESIZEX; x++)
-	//{
-	//	for (int y = 0; y < TILESIZEY; y++)
-	//	{
-	//		if (GAME.m_Stage1Tile != 0)
-	//		{
-	//			tilePersent++;
-	//		}
-	//	}
-	//}
 }
 
 void CTitleScene::Render()

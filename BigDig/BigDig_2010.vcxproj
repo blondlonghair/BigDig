@@ -387,9 +387,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CStage2Scene.cpp" />
+    <ClCompile Include="CStage3Scene.cpp" />
     <ClCompile Include="PaperAndStamp.cpp" />
     <ClCompile Include="Stage1Boss.cpp" />
-    <ClCompile Include="Stage1Score.cpp" />
+    <ClCompile Include="Stage1UI.cpp" />
     <ClCompile Include="Stage1TileMap.cpp" />
     <ClCompile Include="Stage2Boss.cpp" />
     <ClCompile Include="Stage2Player.cpp" />
@@ -398,9 +399,10 @@
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TitleScript.cpp" />
     <ClInclude Include="CStage2Scene.h" />
+    <ClInclude Include="CStage3Scene.h" />
     <ClInclude Include="PaperAndStamp.h" />
     <ClInclude Include="Stage1Boss.h" />
-    <ClInclude Include="Stage1Score.h" />
+    <ClInclude Include="Stage1UI.h" />
     <ClInclude Include="Stage1TileMap.h" />
     <ClInclude Include="Stage2Boss.h" />
     <ClInclude Include="Stage2Player.h" />

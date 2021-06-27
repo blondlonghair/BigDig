@@ -1,50 +1,89 @@
 #include "DXUT.h"
-#include "Stage1Score.h"
+#include "Stage1UI.h"
 
-void Stage1Score::Awake()
+void Stage1UI::Awake()
 {
 	firstVal = OBJECT.AddObject(Tag::UI);
 	firstVal->ac<CSpriteRenderer>()->Init(SPRITE("number0"), SortingLayer::UI, RenderMode::UI);
-	firstVal->tf->m_vPos = Vec2(50, 75);
+	firstVal->tf->m_vPos = Vec2(25, 35);
 
 	secondVal = OBJECT.AddObject(Tag::UI);
 	secondVal->ac<CSpriteRenderer>()->Init(SPRITE("number0"), SortingLayer::UI, RenderMode::UI);
-	secondVal->tf->m_vPos = Vec2(150, 75);
+	secondVal->tf->m_vPos = Vec2(85, 35);
+
+	textPersent = OBJECT.AddObject(Tag::UI);
+	textPersent->ac<CSpriteRenderer>()->Init(SPRITE("Persent"), SortingLayer::UI, RenderMode::UI);
+	textPersent->tf->m_vPos = Vec2(155, 35);
+
+	if (GAME.m_playerLife == 3)
+	{
+		heart1 = OBJECT.AddObject(Tag::UI);
+		heart1->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
+		heart1->tf->m_vPos = Vec2(WINSIZEX - 32 - 64 - 64 - 10 - 10, 32);
+
+		heart2 = OBJECT.AddObject(Tag::UI);
+		heart2->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
+		heart2->tf->m_vPos = Vec2(WINSIZEX - 32 - 64 - 10, 32);
+
+		heart3 = OBJECT.AddObject(Tag::UI);
+		heart3->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
+		heart3->tf->m_vPos = Vec2(WINSIZEX - 32, 32);
+	}
+
+	if (GAME.m_playerLife == 2)
+	{
+		heart2 = OBJECT.AddObject(Tag::UI);
+		heart2->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
+		heart2->tf->m_vPos = Vec2(WINSIZEX - 32 - 64 - 10, 32);
+
+		heart3 = OBJECT.AddObject(Tag::UI);
+		heart3->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
+		heart3->tf->m_vPos = Vec2(WINSIZEX - 32, 32);
+	}
+
+	if (GAME.m_playerLife == 1)
+	{
+		heart3 = OBJECT.AddObject(Tag::UI);
+		heart3->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
+		heart3->tf->m_vPos = Vec2(WINSIZEX - 32, 32);
+	}
+
+	HeartUI();
 }
 
-void Stage1Score::Start()
+void Stage1UI::Start()
 {
 }
 
-void Stage1Score::Update()
+void Stage1UI::Update()
 {
 }
 
-void Stage1Score::LateUpdate()
+void Stage1UI::LateUpdate()
 {
 }
 
-void Stage1Score::OnRender()
+void Stage1UI::OnRender()
 {
 }
 
-void Stage1Score::OnDestroy()
+void Stage1UI::OnDestroy()
 {
 }
 
-void Stage1Score::OnCollisionEnter(CObject* _pObj)
+void Stage1UI::OnCollisionEnter(CObject* _pObj)
 {
 }
 
-void Stage1Score::OnCollisionStay(CObject* _pObj)
+void Stage1UI::OnCollisionStay(CObject* _pObj)
 {
 }
 
-void Stage1Score::OnCollisionExit(CObject* _pObj)
+void Stage1UI::OnCollisionExit(CObject* _pObj)
 {
 }
 
-void Stage1Score::UpdateScore()
+void Stage1UI::UpdateScore()
 {
 	int value = 0;
 
@@ -66,15 +105,6 @@ void Stage1Score::UpdateScore()
 	int num1 = (int)persentage / 10;
 	int num2 = (int)persentage % 10;
 
-	//OutputDebugStringA(num1);
-	//OutputDebugStringA(num2);
-
-	//firstVal->gc<CSpriteRenderer>()->m_bEnable = false;
-	//firstVal->ac<CSpriteRenderer>()->Init(SPRITE("number"  + num1), SortingLayer::UI, RenderMode::UI);
-
-	//string str = "";
-	//sprintf((char*)str.c_str(), "%d", num1);
-	
 	switch (num1)
 	{
 	case 1: firstVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number1"); break;
@@ -104,31 +134,27 @@ void Stage1Score::UpdateScore()
 	case 0: secondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number0"); break;
 	default: secondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number9"); break;
 	}
-	//firstVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number" + str);
 
-	//sprintf((char*)str.c_str(), "%d", num2);
+	if (persentage > 80)
+	{
+		SCENE.ChangeScene("Stage2");
+	}
+}
 
-	//secondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number" + str);
-
-	//string Temp = to_string(persentage);
-	//for (int i = 0; i < 10; i++)
-	//{
-	//	if (num1 == i)
-	//	{
-	//		firstVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number" + i);
-	//	}
-
-	//	if (num2 == i)
-	//	{
-	//		secondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number" + i);
-	//	}
-
-	//}
-		//else
-		//{
-		//	firstVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number9");
-		//	secondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number9");
-		//}
-	//LPCSTR ch = (LPCSTR)Temp.c_str();
-	//OutputDebugStringA(ch + '\n');
+void Stage1UI::HeartUI()
+{
+	switch (GAME.m_playerLife)
+	{
+	case 3:
+		break;
+	case 2:
+		heart1->Destroy();
+		break;
+	case 1:
+		heart2->Destroy();
+		break;
+	case 0:
+		heart3->Destroy();
+		break;
+	}
 }

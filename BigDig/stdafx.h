@@ -53,8 +53,7 @@ enum class Tag
 	UI,
 	BackGround,
 	Boss,
-	Stage1Score,
-	PlayerLife
+	Stage1UI,
 };
 
 // Unity의 SortingLayer라고 생각하면 편함
@@ -201,7 +200,7 @@ using namespace math; // 위에 std랑 같음
 #include "Stage1Player.h"
 #include "Stage1TileMap.h"
 #include "Stage1Boss.h"
-#include "Stage1Score.h"
+#include "Stage1UI.h"
 
 //스테이지2
 #include "Stage2Boss.h"

@@ -29,8 +29,12 @@ void Stage1Boss::Update()
 
 	leftHand->tf->m_vRot = (math::Atan2(leftHand->tf->m_vPos, Player->tf->m_vPos));
 	rightHand->tf->m_vRot = (math::Atan2(rightHand->tf->m_vPos, Player->tf->m_vPos) - 180);
-	//ifdsa += 1;
-	//tf->m_vRot = ifdsa;
+
+	//for (int angle = 0; angle < 360; angle++)
+	//{
+	//	leftHand->tf->m_vPos.x = (cos())
+	//	leftHand->tf->m_vPos.y = sin(100);
+	//}
 }
 
 void Stage1Boss::LateUpdate()
@@ -51,6 +55,8 @@ void Stage1Boss::OnCollisionEnter(CObject* _pObj)
 	{
 		_pObj->gc<Stage1Player>()->isHit = true;
 		GAME.m_playerLife--;
+		CObject* stage1UI = OBJECT.Find(Tag::Stage1UI);
+		stage1UI->gc<Stage1UI>()->HeartUI();
 	}
 }
 
@@ -64,7 +70,8 @@ void Stage1Boss::OnCollisionExit(CObject* _pObj)
 
 void Stage1Boss::Patern1()
 {
-	//leftHand->tf->m_vRot = ifdsa;
+	leftHand->tf->m_vPos.x = cos(1);
+	leftHand->tf->m_vPos.y = sin(1);
 }
 
 void Stage1Boss::Patern2()

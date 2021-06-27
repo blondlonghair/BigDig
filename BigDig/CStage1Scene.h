@@ -3,6 +3,14 @@
 class CStage1Scene :
     public CScene
 {
+public:
+    CObject* paperStamp;
+    CObject* pBackBG;
+    CObject* pFrontBG;
+    CObject* pPlayer;
+    CObject* pBoss;
+    CObject* ScoreText;
+
 private:
     bool isStart = false;
 
