@@ -135,9 +135,9 @@ void Stage1UI::UpdateScore()
 	default: secondVal->gc<CSpriteRenderer>()->m_pSprite = SPRITE("number9"); break;
 	}
 
-	if (persentage > 80)
+	if (persentage >= 70)
 	{
-		SCENE.ChangeScene("Stage2");
+		SCENE.ChangeScene("STAGE2");
 	}
 }
 

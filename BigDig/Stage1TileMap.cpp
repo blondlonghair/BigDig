@@ -18,6 +18,7 @@ void Stage1TileMap::Awake()
 			D3DXCOLOR color = pColor[y * TILESIZEX + x];
 			color.a = 1;
 			pColor[y * TILESIZEX + x] = color;
+			GAME.stage1Color[x][y] = color;
 		}
 	}
 
@@ -36,7 +37,6 @@ void Stage1TileMap::Awake()
 
 void Stage1TileMap::Start()
 {
-	UpdateLockRect();
 }
 
 void Stage1TileMap::Update()
@@ -87,9 +87,4 @@ void Stage1TileMap::InitArray()
 		GAME.m_Stage1Tile[0][i] = 1;
 		GAME.m_Stage1Tile[TILESIZEX - 1][i] = 1;
 	}
-}
-
-void Stage1TileMap::UpdateLockRect()
-{
-
 }

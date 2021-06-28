@@ -3,7 +3,7 @@
 class Stage1Boss :
 	public CComponent
 {
-public:
+private:
 	// CComponent을(를) 통해 상속됨
 	virtual void Awake() override;
 	virtual void Start() override;
@@ -14,11 +14,17 @@ public:
 	virtual void OnCollisionEnter(CObject* _pObj) override;
 	virtual void OnCollisionStay(CObject* _pObj) override;
 	virtual void OnCollisionExit(CObject* _pObj) override;
-	void Patern1();
-	void Patern2();
-	void Patern3();
+
+public:
+	void Pattern1();
+	void Pattern2();
+	void Pattern3();
 public:
 	CObject *leftHand, *rightHand;
-	//int ifdsa = 0;
+private:
+	Stage1Player* player;
+	float fTime;
+	Vec2 playerPos;
+	bool fuck = true;
 };
 

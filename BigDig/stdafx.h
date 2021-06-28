@@ -201,6 +201,7 @@ using namespace math; // 위에 std랑 같음
 #include "Stage1TileMap.h"
 #include "Stage1Boss.h"
 #include "Stage1UI.h"
+#include "Stage1BossArm.h"
 
 //스테이지2
 #include "Stage2Boss.h"

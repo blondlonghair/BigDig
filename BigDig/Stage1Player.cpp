@@ -33,6 +33,10 @@ void Stage1Player::Update()
 	if (isHit)
 	{
 		GoBack();
+		//GAME.m_playerLife--;
+		//CObject* stage1UI = OBJECT.Find(Tag::Stage1UI);
+		//stage1UI->gc<Stage1UI>()->HeartUI();
+		//int i = GAME.m_playerLife;
 		isHit = false;
 	}
 }
@@ -51,6 +55,10 @@ void Stage1Player::OnDestroy()
 
 void Stage1Player::OnCollisionEnter(CObject* _pObj)
 {
+	//if (_pObj->m_Tag == Tag::Boss)
+	//{
+	//	isHit = true;
+	//}
 }
 void Stage1Player::OnCollisionStay(CObject* _pObj)
 {
@@ -175,7 +183,7 @@ void Stage1Player::Move()
 			tf->m_vPos += Vec2(0, -1);
 			tf->m_vRot = 0;
 
-			if (MoveCheck1())
+			if (MoveCheck1() && MoveCheck2())
 			{
 				xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
 				yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
@@ -189,7 +197,7 @@ void Stage1Player::Move()
 			if (!MoveCheck2())
 			{
 				tf->m_vPos += Vec2(0, 1);
-				GAME.m_Stage1Tile[xPos][yPos + 1] = 0;
+				GAME.m_Stage1Tile[xTemp][yTemp - 1] = 0;
 			}
 		}
 	}
@@ -200,7 +208,7 @@ void Stage1Player::Move()
 			tf->m_vPos += Vec2(0, 1);
 			tf->m_vRot = 180;
 
-			if (MoveCheck1())
+			if (MoveCheck1() && MoveCheck2())
 			{
 				xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
 				yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
@@ -214,7 +222,7 @@ void Stage1Player::Move()
 			if (!MoveCheck2())
 			{
 				tf->m_vPos += Vec2(0, -1);
-				GAME.m_Stage1Tile[xPos][yPos - 1] = 0;
+				GAME.m_Stage1Tile[xTemp][yTemp + 1] = 0;
 			}
 		}
 	}
@@ -225,7 +233,7 @@ void Stage1Player::Move()
 			tf->m_vPos += Vec2(-1, 0);
 			tf->m_vRot = 270;
 
-			if (MoveCheck1())
+			if (MoveCheck1() && MoveCheck2())
 			{
 				xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
 				yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
@@ -239,7 +247,7 @@ void Stage1Player::Move()
 			if (!MoveCheck2())
 			{
 				tf->m_vPos += Vec2(1, 0);
-				GAME.m_Stage1Tile[xPos + 1][yPos] = 0;
+				GAME.m_Stage1Tile[xTemp - 1][yTemp] = 0;
 			}
 		}
 	}
@@ -250,7 +258,7 @@ void Stage1Player::Move()
 			tf->m_vPos += Vec2(1, 0);
 			tf->m_vRot = 90;
 
-			if (MoveCheck1())
+			if (MoveCheck1() && MoveCheck2())
 			{
 				xPos = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
 				yPos = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
@@ -264,7 +272,7 @@ void Stage1Player::Move()
 			if (!MoveCheck2())
 			{
 				tf->m_vPos += Vec2(-1, 0);
-				GAME.m_Stage1Tile[xPos - 1][yPos] = 0;
+				GAME.m_Stage1Tile[xTemp + 1][yTemp] = 0;
 			}
 		}
 	}
@@ -406,7 +414,8 @@ void Stage1Player::FillColor()
 	{
 		for (int y = 1; y < TILESIZEY - 1; y++)
 		{
-			if (GAME.m_Stage1Tile[x][y] == 1 && (!GAME.m_Stage1Tile[x + 1][y] == 0 && !GAME.m_Stage1Tile[x - 1][y] == 0 && !GAME.m_Stage1Tile[x][y + 1] == 0 && !GAME.m_Stage1Tile[x][y - 1] == 0))
+			if (GAME.m_Stage1Tile[x][y] == 1 && (!GAME.m_Stage1Tile[x + 1][y] == 0 && !GAME.m_Stage1Tile[x - 1][y] == 0 &&
+				!GAME.m_Stage1Tile[x][y + 1] == 0 && !GAME.m_Stage1Tile[x][y - 1] == 0))
 			{
 				GAME.m_Stage1Tile[x][y] = 3;
 			}
@@ -555,7 +564,7 @@ void Stage1Player::GoBack()
 		if (GAME.m_Stage1Tile[xTemp - 1][yTemp] == 2 && GAME.m_Stage1Tile[xTemp - 1][yTemp] != 1)
 		{
 			GAME.m_Stage1Tile[xTemp - 1][yTemp] = 0;
-			pColor[yTemp * TILESIZEX + xTemp] = color;
+			pColor[yTemp * TILESIZEX + xTemp] = GAME.stage1Color[xTemp][yTemp];
 			xTemp -= 1;
 
 			OutputDebugStringA("¿Þ\n");
@@ -571,7 +580,7 @@ void Stage1Player::GoBack()
 		if (GAME.m_Stage1Tile[xTemp + 1][yTemp] == 2 && GAME.m_Stage1Tile[xTemp + 1][yTemp] != 1)
 		{
 			GAME.m_Stage1Tile[xTemp + 1][yTemp] = 0;
-			pColor[yTemp * TILESIZEX + xTemp] = color;
+			pColor[yTemp * TILESIZEX + xTemp] = GAME.stage1Color[xTemp][yTemp];
 			xTemp += 1;
 			OutputDebugStringA("¿À\n");
 		}
@@ -586,7 +595,7 @@ void Stage1Player::GoBack()
 		if (GAME.m_Stage1Tile[xTemp][yTemp - 1] == 2 && GAME.m_Stage1Tile[xTemp][yTemp - 1] != 1)
 		{
 			GAME.m_Stage1Tile[xTemp][yTemp - 1] = 0;
-			pColor[yTemp * TILESIZEX + xTemp] = color;
+			pColor[yTemp * TILESIZEX + xTemp] = GAME.stage1Color[xTemp][yTemp];
 			yTemp -= 1;
 			OutputDebugStringA("À§\n");
 		}
@@ -601,7 +610,7 @@ void Stage1Player::GoBack()
 		if (GAME.m_Stage1Tile[xTemp][yTemp + 1] == 2 && GAME.m_Stage1Tile[xTemp][yTemp + 1] != 1)
 		{
 			GAME.m_Stage1Tile[xTemp][yTemp + 1] = 0;
-			pColor[yTemp * TILESIZEX + xTemp] = color;
+			pColor[yTemp * TILESIZEX + xTemp] = GAME.stage1Color[xTemp][yTemp];
 			yTemp += 1;
 			OutputDebugStringA("¾Æ·¡\n");
 		}

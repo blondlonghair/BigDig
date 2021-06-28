@@ -286,6 +286,9 @@
     <ClCompile Include="CStage3Scene.cpp">
       <Filter>002 : Game\Scene\004 : Stage3</Filter>
     </ClCompile>
+    <ClCompile Include="Stage1BossArm.cpp">
+      <Filter>002 : Game\Component\Stage1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -404,6 +407,9 @@
     </ClInclude>
     <ClInclude Include="CStage3Scene.h">
       <Filter>002 : Game\Scene\004 : Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1BossArm.h">
+      <Filter>002 : Game\Component\Stage1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

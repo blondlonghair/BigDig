@@ -19,6 +19,6 @@ public:
 
 private:
     void Stage1TileMap::InitArray();
-    void Stage1TileMap::UpdateLockRect();
+    void GetGridColor();
 };
 

@@ -19,7 +19,7 @@ void TitleScript::Update()
 		}
 	}
 }
-
+ 
 void TitleScript::LateUpdate()
 {
 }
