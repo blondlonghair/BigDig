@@ -42,6 +42,8 @@ void CLoadScene::Init()
 	LoadSprite("Persent", "숫자/Persent");
 	LoadSprite("Heart", "heart");
 	LoadSprite("continueText", "TitleContinueText");
+	LoadSprite("flippedLeftHand", "왼손_flip");
+	LoadSprite("flippedRightHand", "오른손_flip");
 }
 
 void CLoadScene::Update()

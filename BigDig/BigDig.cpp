@@ -7,6 +7,7 @@
 #include "resource.h"
 #include "CMainGame.h"
 CMainGame* pMg = nullptr;
+float Delta = 0;
 
 //--------------------------------------------------------------------------------------
 // Rejects any D3D9 devices that aren't acceptable to the app by returning false
@@ -55,6 +56,7 @@ HRESULT CALLBACK OnD3D9ResetDevice( IDirect3DDevice9* pd3dDevice, const D3DSURFA
                                     void* pUserContext )
 {
     pMg->OnResetDevice();
+
     return S_OK;
 }
 
@@ -64,7 +66,10 @@ HRESULT CALLBACK OnD3D9ResetDevice( IDirect3DDevice9* pd3dDevice, const D3DSURFA
 //--------------------------------------------------------------------------------------
 void CALLBACK OnFrameMove( double fTime, float fElapsedTime, void* pUserContext )
 {
-    pMg->Update();
+    Delta += dt;
+    if (Delta >= 0.002) {
+        pMg->Update(); Delta = 0;
+    }
 }
 
 

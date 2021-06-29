@@ -29,6 +29,8 @@ public:
 	void Update();
 
 	void SetScale(float _Scale);
+
+	void SetShake(float _ShakeForce, float _ShakeTime);
 };
 
 #define CAMERA (*CCameraManager::GetInstance())

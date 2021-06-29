@@ -12,5 +12,9 @@ class Stage1BossArm : public CComponent
     virtual void OnCollisionEnter(CObject* _pObj) override;
     virtual void OnCollisionStay(CObject* _pObj) override;
     virtual void OnCollisionExit(CObject* _pObj) override;
+
+private:
+    bool fuck = false;
+    bool isStop = false;
 };
 

@@ -28,7 +28,7 @@ private:
 
 public:
 	bool isHit = false;
-	int moveSpeed = 2;
+	int moveSpeed = 3;
 
 private:
 	void Move();

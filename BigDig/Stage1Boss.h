@@ -23,8 +23,9 @@ public:
 	CObject *leftHand, *rightHand;
 private:
 	Stage1Player* player;
-	float fTime;
-	Vec2 playerPos;
-	bool fuck = true;
+	float leftTime = 0;
+	float rightTime = -2;
+	Vec2 lPlayerPos;
+	Vec2 rPlayerPos;
 };
 

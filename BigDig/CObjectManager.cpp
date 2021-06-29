@@ -17,25 +17,25 @@ CObjectManager::~CObjectManager()
 	m_listObject.clear();
 }
 
-void CObjectManager::RegisterCollider(CCollider * _pCollider)
+void CObjectManager::RegisterCollider(CCollider* _pCollider)
 {
 	m_listCollider.push_back(_pCollider); // list 변수에 추가
 }
 
-void CObjectManager::UnRegisterCollider(CCollider * _pCollider)
+void CObjectManager::UnRegisterCollider(CCollider* _pCollider)
 {
 	m_listCollider.remove(_pCollider); // list 변수에서 삭제
 }
 
-bool CObjectManager::IsCollision(CCollider * _pPrev, CCollider * _pNext)
+bool CObjectManager::IsCollision(CCollider* _pPrev, CCollider* _pNext)
 {
 	// 충돌했으면 true 아니면 false 반환
 	return GetLength(_pPrev->tf->GetWorldPos(), _pNext->tf->GetWorldPos()) < _pPrev->m_fRadius + _pNext->m_fRadius;
 }
 
-CObject * CObjectManager::AddObject(Tag _Tag)
+CObject* CObjectManager::AddObject(Tag _Tag)
 {
-	CObject * pObject = new CObject(); // 오브젝트 변수 선언 및 할당
+	CObject* pObject = new CObject(); // 오브젝트 변수 선언 및 할당
 	pObject->m_Tag = _Tag; // 태그 셋팅
 	pObject->tf = pObject->ac<CTransform>(); // 트랜스폼 추가
 	pObject->tf->tf = pObject->tf; // 트랜스폼 설정
@@ -44,7 +44,7 @@ CObject * CObjectManager::AddObject(Tag _Tag)
 	return pObject; // 반환
 }
 
-CObject * CObjectManager::Find(Tag _Tag)
+CObject* CObjectManager::Find(Tag _Tag)
 {
 	// 범위기반 반복문 foreach와 동일한 기능 m_listObject를 begin부터end까지 탐색하는 기능
 	// auto는 자동으로 형변환을 해주는 반환자 컴파일러가 auto iter : m_listObject라면 iter의 반환자는 CObject* / auto test = 1 이라면 test의 반환자는 int
@@ -102,22 +102,59 @@ void CObjectManager::Update()
 	for (auto iter = m_listCollider.begin(); iter != m_listCollider.end(); iter++)
 	{
 		if ((*iter)->m_bEnable == true)
+		{
 			for (auto iter2 = std::next(iter, 1); iter2 != m_listCollider.end(); iter2++)
 			{
 				if ((*iter2)->m_bEnable == true && (*iter)->go->m_Tag != (*iter2)->go->m_Tag)
+				{
 					if (IsCollision(*iter, *iter2))
 					{
-							for (auto comp : (*iter)->go->m_listComponent)
+						for (auto comp : (*iter)->go->m_listComponent)
+						{
+							if (comp->isEnter == false)
 							{
 								comp->OnCollisionEnter((*iter2)->go);
+								comp->isEnter = true;
 							}
-							for (auto comp : (*iter2)->go->m_listComponent)
+
+							comp->OnCollisionStay((*iter2)->go);
+						}
+
+						for (auto comp : (*iter2)->go->m_listComponent)
+						{
+							if (comp->isEnter == false)
 							{
 								comp->OnCollisionEnter((*iter)->go);
+								comp->isEnter = true;
 							}
+
+							comp->OnCollisionStay((*iter)->go);
+						}
 					}
 
+					else
+					{
+						for (auto comp : (*iter)->go->m_listComponent)
+						{
+							if (comp->isEnter == true)
+							{
+								comp->OnCollisionExit((*iter2)->go);
+								comp->isEnter = false;
+							}
+						}
+
+						for (auto comp : (*iter2)->go->m_listComponent)
+						{
+							if (comp->isEnter == true)
+							{
+								comp->OnCollisionExit((*iter)->go);
+								comp->isEnter = false;
+							}
+						}
+					}
+				}
 			}
+		}
 	}
 	// 오브젝트들의 충돌처리를 해주는 부분
 
@@ -150,7 +187,7 @@ void CObjectManager::Update()
 void CObjectManager::Render()
 {
 	//  SortingLayer에 맞게 리스트 변수를 정렬
-	m_listRenderer2D.sort([](CRenderer2D * _pPrev, CRenderer2D * _pNext) { return (int)_pPrev->m_Layer < (int)_pNext->m_Layer; });
+	m_listRenderer2D.sort([](CRenderer2D* _pPrev, CRenderer2D* _pNext) { return (int)_pPrev->m_Layer < (int)_pNext->m_Layer; });
 
 	// 그 후 렌더링
 	for (auto iter : m_listRenderer2D)

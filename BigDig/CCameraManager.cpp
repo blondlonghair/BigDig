@@ -63,3 +63,9 @@ void CCameraManager::SetScale(float _Scale)
     m_Scale = _Scale;
     m_ScaleTo = _Scale;
 }
+
+void CCameraManager::SetShake(float _ShakeForce, float _ShakeTime)
+{
+    m_ShakeForce = _ShakeForce;
+    m_ShakeTime = _ShakeTime;
+}

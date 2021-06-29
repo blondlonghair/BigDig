@@ -29,16 +29,28 @@ void Stage1Player::Update()
 	{
 		Move();
 	}
-
+	//float t1 = 1;
+	//bool t2 = false;
 	if (isHit)
 	{
 		GoBack();
-		//GAME.m_playerLife--;
-		//CObject* stage1UI = OBJECT.Find(Tag::Stage1UI);
-		//stage1UI->gc<Stage1UI>()->HeartUI();
-		//int i = GAME.m_playerLife;
+		GAME.m_playerLife--;
+		CObject* stage1UI = OBJECT.Find(Tag::Stage1UI);
+		stage1UI->gc<Stage1UI>()->HeartUI();
+		//t2 = true;
 		isHit = false;
 	}
+
+	//if (t2)
+	//{
+	//	CAMERA.m_ShakeForce = 10;
+	//	t1 -= dt;
+	//	if (dt <= 0)
+	//	{
+	//		CAMERA.m_ShakeForce = 0;
+	//		t2 = false;
+	//	}
+	//}
 }
 
 void Stage1Player::LateUpdate()
@@ -549,15 +561,18 @@ void Stage1Player::ReturnFill(int x, int y)
 void Stage1Player::GoBack()
 {
 	//tf->gc<CCollider>()->m_bEnable = false;
-
 	GAME.m_Stage1Tile[xPos][yPos] = 0;
 
 	int xTemp = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
 	int yTemp = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
+
 	SPRITE("Stage1FrontBG")->m_pTexture->LockRect(0, &GAME.m_lockRect, 0, D3DLOCK_DISCARD);
 
 	DWORD* pColor = (DWORD*)GAME.m_lockRect.pBits;
 	D3DXCOLOR color = { 0, 0, 0, 1 };
+
+	if (GAME.m_Stage1Tile[xTemp][yTemp] == 1)
+		return;
 
 	while (GAME.m_Stage1Tile[xTemp][yTemp] != 1)
 	{
@@ -567,7 +582,7 @@ void Stage1Player::GoBack()
 			pColor[yTemp * TILESIZEX + xTemp] = GAME.stage1Color[xTemp][yTemp];
 			xTemp -= 1;
 
-			OutputDebugStringA("¿Þ\n");
+			//OutputDebugStringA("¿Þ\n");
 		}
 		else if (GAME.m_Stage1Tile[xTemp - 1][yTemp] == 1)
 		{
@@ -582,7 +597,7 @@ void Stage1Player::GoBack()
 			GAME.m_Stage1Tile[xTemp + 1][yTemp] = 0;
 			pColor[yTemp * TILESIZEX + xTemp] = GAME.stage1Color[xTemp][yTemp];
 			xTemp += 1;
-			OutputDebugStringA("¿À\n");
+			//OutputDebugStringA("¿À\n");
 		}
 		else if (GAME.m_Stage1Tile[xTemp + 1][yTemp] == 1)
 		{
@@ -597,7 +612,7 @@ void Stage1Player::GoBack()
 			GAME.m_Stage1Tile[xTemp][yTemp - 1] = 0;
 			pColor[yTemp * TILESIZEX + xTemp] = GAME.stage1Color[xTemp][yTemp];
 			yTemp -= 1;
-			OutputDebugStringA("À§\n");
+			//OutputDebugStringA("À§\n");
 		}
 		else if (GAME.m_Stage1Tile[xTemp][yTemp - 1] == 1)
 		{
@@ -612,7 +627,7 @@ void Stage1Player::GoBack()
 			GAME.m_Stage1Tile[xTemp][yTemp + 1] = 0;
 			pColor[yTemp * TILESIZEX + xTemp] = GAME.stage1Color[xTemp][yTemp];
 			yTemp += 1;
-			OutputDebugStringA("¾Æ·¡\n");
+			//OutputDebugStringA("¾Æ·¡\n");
 		}
 		else if (GAME.m_Stage1Tile[xTemp][yTemp + 1] == 1)
 		{

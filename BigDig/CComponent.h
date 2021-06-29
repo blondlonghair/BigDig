@@ -63,5 +63,7 @@ public:
 	{
 		return go->gc<T>();
 	}
+
+	int isEnter = false;
 };
 

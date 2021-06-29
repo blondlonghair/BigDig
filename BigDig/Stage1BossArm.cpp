@@ -25,22 +25,22 @@ void Stage1BossArm::OnDestroy()
 {
 }
 
-void Stage1BossArm::OnCollisionEnter(CObject* _pObj) 
+void Stage1BossArm::OnCollisionEnter(CObject* _pObj)
 {
 	if (_pObj->m_Tag == Tag::Player)
 	{
-		_pObj->gc<Stage1Player>()->isHit = true;
-		GAME.m_playerLife--;
-		CObject* stage1UI = OBJECT.Find(Tag::Stage1UI);
-		stage1UI->gc<Stage1UI>()->HeartUI();
-		
+		CObject* player = OBJECT.Find(Tag::Player);
+		player->gc<Stage1Player>()->isHit = true;
 	}
+	//OutputDebugStringA("\nBossEnter\n");
 }
 
 void Stage1BossArm::OnCollisionStay(CObject* _pObj)
 {
+	//OutputDebugStringA("\nBossStay\n");
 }
 
 void Stage1BossArm::OnCollisionExit(CObject* _pObj)
 {
+	//OutputDebugStringA("\nBossExit\n");
 }
