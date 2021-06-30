@@ -117,6 +117,9 @@
     <Filter Include="002 : Game\Scene\004 : Stage3">
       <UniqueIdentifier>{d17a57be-9923-4d1f-93d8-e03425e772c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="002 : Game\Component\Stage3">
+      <UniqueIdentifier>{57f812fa-4f24-4bb9-a398-a4cac09bf5a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="DXUT\Optional\directx.ico">
@@ -274,7 +277,7 @@
     <ClCompile Include="Stage2Boss.cpp">
       <Filter>002 : Game\Component\Stage2</Filter>
     </ClCompile>
-    <ClCompile Include="Stage2Score.cpp">
+    <ClCompile Include="Stage2UI.cpp">
       <Filter>002 : Game\Component\Stage2</Filter>
     </ClCompile>
     <ClCompile Include="Stage2TileMap.cpp">
@@ -288,6 +291,24 @@
     </ClCompile>
     <ClCompile Include="Stage1BossArm.cpp">
       <Filter>002 : Game\Component\Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2BossArm.cpp">
+      <Filter>002 : Game\Component\Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3Boss.cpp">
+      <Filter>002 : Game\Component\Stage3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3BossArm.cpp">
+      <Filter>002 : Game\Component\Stage3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3Player.cpp">
+      <Filter>002 : Game\Component\Stage3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3TileMap.cpp">
+      <Filter>002 : Game\Component\Stage3</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage3UI.cpp">
+      <Filter>002 : Game\Component\Stage3</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -396,7 +417,7 @@
     <ClInclude Include="Stage2Boss.h">
       <Filter>002 : Game\Component\Stage2</Filter>
     </ClInclude>
-    <ClInclude Include="Stage2Score.h">
+    <ClInclude Include="Stage2UI.h">
       <Filter>002 : Game\Component\Stage2</Filter>
     </ClInclude>
     <ClInclude Include="Stage2TileMap.h">
@@ -410,6 +431,24 @@
     </ClInclude>
     <ClInclude Include="Stage1BossArm.h">
       <Filter>002 : Game\Component\Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2BossArm.h">
+      <Filter>002 : Game\Component\Stage2</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3Boss.h">
+      <Filter>002 : Game\Component\Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3BossArm.h">
+      <Filter>002 : Game\Component\Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3Player.h">
+      <Filter>002 : Game\Component\Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3TileMap.h">
+      <Filter>002 : Game\Component\Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage3UI.h">
+      <Filter>002 : Game\Component\Stage3</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

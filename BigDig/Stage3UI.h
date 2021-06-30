@@ -1,7 +1,19 @@
 #pragma once
-class Stage2Boss :
+#include "CComponent.h"
+class Stage3UI :
 	public CComponent
 {
+public:
+	//int persentage;
+
+public:
+	CObject* firstVal;
+	CObject* secondVal;
+	CObject* textPersent;
+	CObject* heart1;
+	CObject* heart2;
+	CObject* heart3;
+
 private:
 	// CComponent을(를) 통해 상속됨
 	virtual void Awake() override;
@@ -15,25 +27,7 @@ private:
 	virtual void OnCollisionExit(CObject* _pObj) override;
 
 public:
-	void Pattern1();
-	void Pattern2();
-	void Pattern3();
-public:
-	CObject* leftHand, * rightHand;
-private:
-	CComponent* player2;
-	float leftTime = 0;
-	float rightTime = -2;
-	Vec2 lPlayerPos;
-	Vec2 rPlayerPos;
-	float bossPatternTime;
-	float Pattern1Time = 0;
-	int nextPattern = 1;
-	Vec2 leftPos = Vec2(WINSIZEX / 2 - 300, WINSIZEY / 2);
-	Vec2 rightPos = Vec2(WINSIZEX / 2 + 300, WINSIZEY / 2);
-
-	float X = 0;
-	float Y = 0;
-	float scale = 600;
+	void UpdateScore();
+	void HeartUI();
 };
 

@@ -1,5 +1,6 @@
 #pragma once
-class Stage2Boss :
+#include "CComponent.h"
+class Stage3Boss :
 	public CComponent
 {
 private:
@@ -21,7 +22,7 @@ public:
 public:
 	CObject* leftHand, * rightHand;
 private:
-	CComponent* player2;
+	CComponent* player;
 	float leftTime = 0;
 	float rightTime = -2;
 	Vec2 lPlayerPos;
@@ -31,7 +32,6 @@ private:
 	int nextPattern = 1;
 	Vec2 leftPos = Vec2(WINSIZEX / 2 - 300, WINSIZEY / 2);
 	Vec2 rightPos = Vec2(WINSIZEX / 2 + 300, WINSIZEY / 2);
-
 	float X = 0;
 	float Y = 0;
 	float scale = 600;

@@ -25,20 +25,23 @@ void Stage1Boss::Start()
 
 void Stage1Boss::Update()
 {
-	//if (leftHand->tf->m_vRot >= 180)
-	//{
-	//	leftHand->gc<CSpriteRenderer>()->m_pSprite = SPRITE("flippedLeftHand");
-	//}
-	//else
-	//{
-	//	leftHand->gc<CSpriteRenderer>()->m_pSprite = SPRITE("flippedLeftHand");
-	//}
-
 	if (GAME.isStart)
 	{
-		/*return maplestory 병신직엄 ? adel = false : blaster = true;*/
-		//Pattern3();
-		Pattern1();
+		bossPatternTime += dt;
+
+
+		if (bossPatternTime >= 5)
+		{
+			nextPattern = math::RandRange(1, 4);
+			bossPatternTime = 0;
+		}
+		switch (nextPattern)
+		{
+		case 1: Pattern1(); break;
+		case 2: Pattern2(); break;
+		case 3: Pattern3(); break;
+		default: Pattern3(); break;
+		}
 	}
 }
 void Stage1Boss::LateUpdate()
@@ -55,6 +58,11 @@ void Stage1Boss::OnDestroy()
 
 void Stage1Boss::OnCollisionEnter(CObject* _pObj)
 {
+	if (_pObj->m_Tag == Tag::Player)
+	{
+		CObject* player = OBJECT.Find(Tag::Player);
+		player->gc<Stage1Player>()->isHit = true;
+	}
 }
 
 void Stage1Boss::OnCollisionStay(CObject* _pObj)
@@ -64,19 +72,38 @@ void Stage1Boss::OnCollisionStay(CObject* _pObj)
 void Stage1Boss::OnCollisionExit(CObject* _pObj)
 {
 }
+
 float X = 0;
 float Y = 0;
+float scale = 600;
 void Stage1Boss::Pattern1()
 {
+	scale += dt * 500;
+	Pattern1Time += dt;
+
 	for (int i = 0; i < 5; i++)
 	{
-		leftHand->tf->m_vPos.x += cos(X -= D3DX_PI / 180);
-		leftHand->tf->m_vPos.y += sin(Y += D3DX_PI / 180);
+		leftHand->tf->m_vPos.x += cos(X -= D3DX_PI / scale);
+		leftHand->tf->m_vPos.y += sin(Y += D3DX_PI / scale);
+
+		rightHand->tf->m_vPos.x -= cos(X -= D3DX_PI / scale);
+		rightHand->tf->m_vPos.y -= sin(Y += D3DX_PI / scale);
+	}
+
+	if (Pattern1Time >= 4.5)
+	{
+		scale = 600;
+		Pattern1Time = 0;
 	}
 }
 
 void Stage1Boss::Pattern2()
 {
+	leftHand->tf->m_vPos -= (leftHand->tf->m_vPos - leftPos) / 20;
+	rightHand->tf->m_vPos -= (rightHand->tf->m_vPos - rightPos) / 20;
+
+	leftHand->tf->m_vRot -= (leftHand->tf->m_vRot - 0) / 20;
+	rightHand->tf->m_vRot -= (rightHand->tf->m_vRot - 0) / 20;
 }
 
 void Stage1Boss::Pattern3()
@@ -84,7 +111,7 @@ void Stage1Boss::Pattern3()
 	leftTime += dt;
 	rightTime += dt;
 
-	if (leftTime <= 2)
+	if (leftTime <= 2.5)
 	{
 		leftHand->tf->m_vRot = (math::Atan2(leftHand->tf->m_vPos, player->tf->m_vPos));
 		lPlayerPos = player->tf->m_vPos;
@@ -98,7 +125,7 @@ void Stage1Boss::Pattern3()
 		leftTime = 0;
 	}
 
-	if (rightTime <= 2)
+	if (rightTime <= 2.5)
 	{
 		rightHand->tf->m_vRot = (math::Atan2(rightHand->tf->m_vPos, player->tf->m_vPos) - 180);
 		rPlayerPos = player->tf->m_vPos;

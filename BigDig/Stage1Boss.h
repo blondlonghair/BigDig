@@ -27,5 +27,10 @@ private:
 	float rightTime = -2;
 	Vec2 lPlayerPos;
 	Vec2 rPlayerPos;
+	float bossPatternTime;
+	float Pattern1Time = 0;
+	int nextPattern = 1;
+	Vec2 leftPos = Vec2(WINSIZEX / 2 - 300, WINSIZEY / 2);
+	Vec2 rightPos = Vec2(WINSIZEX / 2 + 300, WINSIZEY / 2);
 };
 

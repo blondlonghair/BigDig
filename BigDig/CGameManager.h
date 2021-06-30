@@ -8,7 +8,9 @@ class CGameManager :
     public CSingleton<CGameManager>
 {
 public:
-    D3DLOCKED_RECT m_lockRect;
+    D3DLOCKED_RECT m_lockRect1;
+    D3DLOCKED_RECT m_lockRect2;
+    D3DLOCKED_RECT m_lockRect3;
     int m_playerLife = 3;
     int m_Stage1Tile[TILESIZEX][TILESIZEY];
     D3DXCOLOR stage1Color[TILESIZEX][TILESIZEY];
@@ -17,7 +19,9 @@ public:
     int m_Stage3Tile[TILESIZEX][TILESIZEY];
     D3DXCOLOR stage3Color[TILESIZEX][TILESIZEY];
     bool isStart = false;
-
+    bool firstTime1 = true;
+    bool firstTime2 = true;
+    bool firstTime3 = true;
 public:
     CGameManager();
     ~CGameManager();

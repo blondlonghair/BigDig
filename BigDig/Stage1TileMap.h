@@ -18,7 +18,6 @@ public:
     virtual void OnCollisionExit(CObject* _pObj) override;
 
 private:
-    void Stage1TileMap::InitArray();
-    void GetGridColor();
+    void InitArray();
 };
 

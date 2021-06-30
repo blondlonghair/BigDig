@@ -1,8 +1,12 @@
 #pragma once
 #include "CComponent.h"
-class Stage1BossArm : public CComponent
+
+class Stage3TileMap :
+    public CComponent
 {
-    // CComponent을(를) 통해 상속됨
+public:
+
+public:
     virtual void Awake() override;
     virtual void Start() override;
     virtual void Update() override;
@@ -14,6 +18,6 @@ class Stage1BossArm : public CComponent
     virtual void OnCollisionExit(CObject* _pObj) override;
 
 private:
-    bool isStop = false;
+    void InitArray();
 };
 

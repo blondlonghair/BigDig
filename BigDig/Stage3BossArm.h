@@ -1,6 +1,6 @@
 #pragma once
 #include "CComponent.h"
-class Stage1BossArm : public CComponent
+class Stage3BossArm : public CComponent
 {
     // CComponent을(를) 통해 상속됨
     virtual void Awake() override;

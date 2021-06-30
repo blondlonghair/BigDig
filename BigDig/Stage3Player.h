@@ -1,8 +1,8 @@
 #pragma once
 #include "CComponent.h"
 
-class Stage1Player :
-    public CComponent
+class Stage3Player :
+	public CComponent
 {
 public:
 	virtual void Awake() override;

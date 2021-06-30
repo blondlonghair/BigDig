@@ -1,30 +1,30 @@
 #include "DXUT.h"
-#include "Stage2Boss.h"
+#include "Stage3Boss.h"
 
-void Stage2Boss::Awake()
+void Stage3Boss::Awake()
 {
 	ac<CSpriteRenderer>()->Init(SPRITE("Stage1Boss"), SortingLayer::Default, RenderMode::Default);
-	player2 = new Stage2Player();
+	player = new Stage3Player();
 }
 
-void Stage2Boss::Start()
+void Stage3Boss::Start()
 {
-	player2 = OBJECT.Find(Tag::Player)->gc<Stage2Player>();
+	player = OBJECT.Find(Tag::Player)->gc<Stage3Player>();
 
 	leftHand = OBJECT.AddObject(Tag::Boss);
 	leftHand->ac<CSpriteRenderer>()->Init(SPRITE("leftHand"), SortingLayer::Default, RenderMode::Default);
 	leftHand->ac<CCollider>()->Init(90);
-	leftHand->ac<Stage2BossArm>();
+	leftHand->ac<Stage3BossArm>();
 	leftHand->tf->m_vPos = Vec2(WINSIZEX / 2 - 300, WINSIZEY / 2);
 
 	rightHand = OBJECT.AddObject(Tag::Boss);
 	rightHand->ac<CSpriteRenderer>()->Init(SPRITE("rightHand"), SortingLayer::Default, RenderMode::Default);
 	rightHand->ac<CCollider>()->Init(90);
-	rightHand->ac<Stage2BossArm>();
+	rightHand->ac<Stage3BossArm>();
 	rightHand->tf->m_vPos = Vec2(WINSIZEX / 2 + 300, WINSIZEY / 2);
 }
 
-void Stage2Boss::Update()
+void Stage3Boss::Update()
 {
 	if (GAME.isStart)
 	{
@@ -45,36 +45,36 @@ void Stage2Boss::Update()
 		}
 	}
 }
-void Stage2Boss::LateUpdate()
+void Stage3Boss::LateUpdate()
 {
 }
 
-void Stage2Boss::OnRender()
+void Stage3Boss::OnRender()
 {
 }
 
-void Stage2Boss::OnDestroy()
+void Stage3Boss::OnDestroy()
 {
 }
 
-void Stage2Boss::OnCollisionEnter(CObject* _pObj)
+void Stage3Boss::OnCollisionEnter(CObject* _pObj)
 {
 	if (_pObj->m_Tag == Tag::Player)
 	{
 		CObject* player = OBJECT.Find(Tag::Player);
-		player->gc<Stage2Player>()->isHit = true;
+		player->gc<Stage3Player>()->isHit = true;
 	}
 }
 
-void Stage2Boss::OnCollisionStay(CObject* _pObj)
+void Stage3Boss::OnCollisionStay(CObject* _pObj)
 {
 }
 
-void Stage2Boss::OnCollisionExit(CObject* _pObj)
+void Stage3Boss::OnCollisionExit(CObject* _pObj)
 {
 }
 
-void Stage2Boss::Pattern1()
+void Stage3Boss::Pattern1()
 {
 	scale += dt * 500;
 	Pattern1Time += dt;
@@ -95,7 +95,7 @@ void Stage2Boss::Pattern1()
 	}
 }
 
-void Stage2Boss::Pattern2()
+void Stage3Boss::Pattern2()
 {
 	leftHand->tf->m_vPos -= (leftHand->tf->m_vPos - leftPos) / 20;
 	rightHand->tf->m_vPos -= (rightHand->tf->m_vPos - rightPos) / 20;
@@ -104,15 +104,15 @@ void Stage2Boss::Pattern2()
 	rightHand->tf->m_vRot -= (rightHand->tf->m_vRot - 0) / 20;
 }
 
-void Stage2Boss::Pattern3()
+void Stage3Boss::Pattern3()
 {
 	leftTime += dt;
 	rightTime += dt;
 
 	if (leftTime <= 2.5)
 	{
-		leftHand->tf->m_vRot = (math::Atan2(leftHand->tf->m_vPos, player2->tf->m_vPos));
-		lPlayerPos = player2->tf->m_vPos;
+		leftHand->tf->m_vRot = (math::Atan2(leftHand->tf->m_vPos, player->tf->m_vPos));
+		lPlayerPos = player->tf->m_vPos;
 	}
 	if (leftTime >= 3.5)
 	{
@@ -125,8 +125,8 @@ void Stage2Boss::Pattern3()
 
 	if (rightTime <= 2.5)
 	{
-		rightHand->tf->m_vRot = (math::Atan2(rightHand->tf->m_vPos, player2->tf->m_vPos) - 180);
-		rPlayerPos = player2->tf->m_vPos;
+		rightHand->tf->m_vRot = (math::Atan2(rightHand->tf->m_vPos, player->tf->m_vPos) - 180);
+		rPlayerPos = player->tf->m_vPos;
 	}
 	if (rightTime >= 3.5)
 	{
