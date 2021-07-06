@@ -29,10 +29,11 @@ void Stage1Boss::Update()
 	{
 		bossPatternTime += dt;
 
-
 		if (bossPatternTime >= 5)
 		{
 			nextPattern = math::RandRange(1, 4);
+			leftTime = 0; rightTime = 2;
+			leftTime = 0; rightTime = 2;
 			bossPatternTime = 0;
 		}
 		switch (nextPattern)
@@ -58,11 +59,6 @@ void Stage1Boss::OnDestroy()
 
 void Stage1Boss::OnCollisionEnter(CObject* _pObj)
 {
-	if (_pObj->m_Tag == Tag::Player)
-	{
-		CObject* player = OBJECT.Find(Tag::Player);
-		player->gc<Stage1Player>()->isHit = true;
-	}
 }
 
 void Stage1Boss::OnCollisionStay(CObject* _pObj)

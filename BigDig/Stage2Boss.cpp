@@ -3,25 +3,11 @@
 
 void Stage2Boss::Awake()
 {
-	ac<CSpriteRenderer>()->Init(SPRITE("Stage1Boss"), SortingLayer::Default, RenderMode::Default);
-	player2 = new Stage2Player();
+	ac<CSpriteRenderer>()->Init(SPRITE("Stage2Boss"), SortingLayer::Default, RenderMode::Default);
 }
 
 void Stage2Boss::Start()
 {
-	player2 = OBJECT.Find(Tag::Player)->gc<Stage2Player>();
-
-	leftHand = OBJECT.AddObject(Tag::Boss);
-	leftHand->ac<CSpriteRenderer>()->Init(SPRITE("leftHand"), SortingLayer::Default, RenderMode::Default);
-	leftHand->ac<CCollider>()->Init(90);
-	leftHand->ac<Stage2BossArm>();
-	leftHand->tf->m_vPos = Vec2(WINSIZEX / 2 - 300, WINSIZEY / 2);
-
-	rightHand = OBJECT.AddObject(Tag::Boss);
-	rightHand->ac<CSpriteRenderer>()->Init(SPRITE("rightHand"), SortingLayer::Default, RenderMode::Default);
-	rightHand->ac<CCollider>()->Init(90);
-	rightHand->ac<Stage2BossArm>();
-	rightHand->tf->m_vPos = Vec2(WINSIZEX / 2 + 300, WINSIZEY / 2);
 }
 
 void Stage2Boss::Update()
@@ -30,11 +16,17 @@ void Stage2Boss::Update()
 	{
 		bossPatternTime += dt;
 
-
 		if (bossPatternTime >= 5)
 		{
 			nextPattern = math::RandRange(1, 4);
-			bossPatternTime = 0;
+			if (nextPattern == 2)
+			{
+				bossPatternTime = -5;
+			}
+			else
+			{
+				bossPatternTime = 0;
+			}
 		}
 		switch (nextPattern)
 		{
@@ -59,11 +51,6 @@ void Stage2Boss::OnDestroy()
 
 void Stage2Boss::OnCollisionEnter(CObject* _pObj)
 {
-	if (_pObj->m_Tag == Tag::Player)
-	{
-		CObject* player = OBJECT.Find(Tag::Player);
-		player->gc<Stage2Player>()->isHit = true;
-	}
 }
 
 void Stage2Boss::OnCollisionStay(CObject* _pObj)
@@ -76,64 +63,72 @@ void Stage2Boss::OnCollisionExit(CObject* _pObj)
 
 void Stage2Boss::Pattern1()
 {
-	scale += dt * 500;
-	Pattern1Time += dt;
+	P1Time += dt;
+	P1Time_2 += dt;
 
-	for (int i = 0; i < 5; i++)
+	if (P1Time >= 0.5)
 	{
-		leftHand->tf->m_vPos.x += cos(X -= D3DX_PI / scale);
-		leftHand->tf->m_vPos.y += sin(Y += D3DX_PI / scale);
-
-		rightHand->tf->m_vPos.x -= cos(X -= D3DX_PI / scale);
-		rightHand->tf->m_vPos.y -= sin(Y += D3DX_PI / scale);
+		isP1 = true;
 	}
 
-	if (Pattern1Time >= 4.5)
+	if (isP1)
 	{
-		scale = 600;
-		Pattern1Time = 0;
+		for (int i = 0; i < 360; i += 40)
+		{
+			CObject* bullet = OBJECT.AddObject(Tag::Boss);
+			bullet->ac<Bullet>()->Init(i);
+		}
+		isP1 = false;
+		P1Time = 0;
+	}
+
+	if (P1Time_2 >= 0.5)
+	{
+		isP1_2 = true;
+	}
+
+	if (isP1_2)
+	{
+		for (int i = 20; i < 380; i += 40)
+		{
+			CObject* bullet = OBJECT.AddObject(Tag::Boss);
+			bullet->ac<Bullet>()->Init(i);
+		}
+		isP1_2 = false;
+		P1Time_2 = 0;
 	}
 }
 
 void Stage2Boss::Pattern2()
 {
-	leftHand->tf->m_vPos -= (leftHand->tf->m_vPos - leftPos) / 20;
-	rightHand->tf->m_vPos -= (rightHand->tf->m_vPos - rightPos) / 20;
+	P2Time += dt;
 
-	leftHand->tf->m_vRot -= (leftHand->tf->m_vRot - 0) / 20;
-	rightHand->tf->m_vRot -= (rightHand->tf->m_vRot - 0) / 20;
+	if (P2Time >= 0.1)
+	{
+		P2Dir += 10;
+		CObject* bullet = OBJECT.AddObject(Tag::Boss);
+		bullet->ac<Bullet>()->Init(P2Dir, 2);
+		CObject* bullet2 = OBJECT.AddObject(Tag::Boss);
+		bullet2->ac<Bullet>()->Init(P2Dir + 180, 2);
+		P2Time = 0;
+	}
 }
 
 void Stage2Boss::Pattern3()
 {
-	leftTime += dt;
-	rightTime += dt;
+	P3Time += dt;
 
-	if (leftTime <= 2.5)
+	if (P3Time >= 1.6)
 	{
-		leftHand->tf->m_vRot = (math::Atan2(leftHand->tf->m_vPos, player2->tf->m_vPos));
-		lPlayerPos = player2->tf->m_vPos;
-	}
-	if (leftTime >= 3.5)
-	{
-		leftHand->tf->m_vPos -= (leftHand->tf->m_vPos - lPlayerPos) / 10;
-	}
-	if (leftTime >= 4)
-	{
-		leftTime = 0;
-	}
+		meteorPos.x = RandRange((TILESIZEX - WINSIZEX) / 2, TILESIZEX + ((TILESIZEX - WINSIZEX) / 2));
+		meteorPos.y = RandRange((TILESIZEY - WINSIZEY) / 2, TILESIZEY + ((TILESIZEY - WINSIZEY) / 2));
 
-	if (rightTime <= 2.5)
-	{
-		rightHand->tf->m_vRot = (math::Atan2(rightHand->tf->m_vPos, player2->tf->m_vPos) - 180);
-		rPlayerPos = player2->tf->m_vPos;
-	}
-	if (rightTime >= 3.5)
-	{
-		rightHand->tf->m_vPos -= (rightHand->tf->m_vPos - rPlayerPos) / 10;
-	}
-	if (rightTime >= 4)
-	{
-		rightTime = 0;
+		for (int i = 0; i < 360; i += 30)
+		{
+			CObject* bullet = OBJECT.AddObject(Tag::Boss);
+			bullet->ac<Bullet>()->Init(i, 2, meteorPos);
+		}
+
+		P3Time = 0;
 	}
 }

@@ -29,28 +29,33 @@ void Stage3Player::Update()
 	{
 		Move();
 	}
-	//float t1 = 1;
-	//bool t2 = false;
 	if (isHit)
 	{
 		GoBack();
 		GAME.m_playerLife--;
 		CObject* stage3UI = OBJECT.Find(Tag::Stage3UI);
 		stage3UI->gc<Stage3UI>()->HeartUI();
-		//t2 = true;
+		tf->gc<CCollider>()->m_bEnable = false;
+		isinvincibility = true;
 		isHit = false;
 	}
 
-	//if (t2)
-	//{
-	//	CAMERA.m_ShakeForce = 10;
-	//	t1 -= dt;
-	//	if (dt <= 0)
-	//	{
-	//		CAMERA.m_ShakeForce = 0;
-	//		t2 = false;
-	//	}
-	//}
+	if (isinvincibility)
+	{
+		invincibilityTime += dt;
+		if (invincibilityTime < 0.5) { tf->gc<CSpriteRenderer>()->m_Color.a = 0.5; }
+		if (invincibilityTime >= 0.5 && invincibilityTime < 1) { tf->gc<CSpriteRenderer>()->m_Color.a = 1; }
+		if (invincibilityTime >= 1 && invincibilityTime < 1.5) { tf->gc<CSpriteRenderer>()->m_Color.a = 0.5; }
+		if (invincibilityTime >= 1.5 && invincibilityTime < 2) { tf->gc<CSpriteRenderer>()->m_Color.a = 1; }
+		if (invincibilityTime >= 2 && invincibilityTime < 2.5) { tf->gc<CSpriteRenderer>()->m_Color.a = 0.5; }
+		if (invincibilityTime >= 2.5)
+		{
+			tf->gc<CCollider>()->m_bEnable = true;
+			tf->gc<CSpriteRenderer>()->m_Color.a = 1;
+			invincibilityTime = 0;
+			isinvincibility = false;
+		}
+	}
 }
 
 void Stage3Player::LateUpdate()
@@ -67,10 +72,10 @@ void Stage3Player::OnDestroy()
 
 void Stage3Player::OnCollisionEnter(CObject* _pObj)
 {
-	//if (_pObj->m_Tag == Tag::Boss)
-	//{
-	//	isHit = true;
-	//}
+	if (_pObj->m_Tag == Tag::Boss)
+	{
+		isHit = true;
+	}
 }
 
 void Stage3Player::OnCollisionStay(CObject* _pObj)

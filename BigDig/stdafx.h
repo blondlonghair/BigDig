@@ -194,6 +194,8 @@ using namespace math; // 위에 std랑 같음
 
 //공용
 #include "PaperAndStamp.h"
+#include "Bullet.h"
+#include "CheatKey.h"
 
 //타이틀 화면
 #include "TitleScript.h"
@@ -210,7 +212,6 @@ using namespace math; // 위에 std랑 같음
 #include "Stage2Player.h"
 #include "Stage2UI.h"
 #include "Stage2TileMap.h"
-#include "Stage2BossArm.h"
 
 //스테이지4
 #include "Stage3Boss.h"

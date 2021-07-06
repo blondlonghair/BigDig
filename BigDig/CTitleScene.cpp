@@ -31,6 +31,9 @@ void CTitleScene::Init()
 	CObject* continueText = OBJECT.AddObject(Tag::UI);
 	continueText->ac<CSpriteRenderer>()->Init(SPRITE("continueText"), SortingLayer::UI, RenderMode::UI);
 	continueText->tf->m_vPos = Vec2(WINSIZEX / 2, WINSIZEY / 2);
+
+	CObject* cheatKey = OBJECT.AddObject(Tag::Untagged);
+	cheatKey->ac<CheatKey>();
 }
 
 void CTitleScene::Update()

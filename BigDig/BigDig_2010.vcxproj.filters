@@ -292,9 +292,6 @@
     <ClCompile Include="Stage1BossArm.cpp">
       <Filter>002 : Game\Component\Stage1</Filter>
     </ClCompile>
-    <ClCompile Include="Stage2BossArm.cpp">
-      <Filter>002 : Game\Component\Stage2</Filter>
-    </ClCompile>
     <ClCompile Include="Stage3Boss.cpp">
       <Filter>002 : Game\Component\Stage3</Filter>
     </ClCompile>
@@ -309,6 +306,12 @@
     </ClCompile>
     <ClCompile Include="Stage3UI.cpp">
       <Filter>002 : Game\Component\Stage3</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>002 : Game\Component\Communal</Filter>
+    </ClCompile>
+    <ClCompile Include="CheatKey.cpp">
+      <Filter>002 : Game\Component\Communal</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -432,9 +435,6 @@
     <ClInclude Include="Stage1BossArm.h">
       <Filter>002 : Game\Component\Stage1</Filter>
     </ClInclude>
-    <ClInclude Include="Stage2BossArm.h">
-      <Filter>002 : Game\Component\Stage2</Filter>
-    </ClInclude>
     <ClInclude Include="Stage3Boss.h">
       <Filter>002 : Game\Component\Stage3</Filter>
     </ClInclude>
@@ -449,6 +449,12 @@
     </ClInclude>
     <ClInclude Include="Stage3UI.h">
       <Filter>002 : Game\Component\Stage3</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>002 : Game\Component\Communal</Filter>
+    </ClInclude>
+    <ClInclude Include="CheatKey.h">
+      <Filter>002 : Game\Component\Communal</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

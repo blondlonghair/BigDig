@@ -9,7 +9,7 @@ void CStage3Scene::Init()
 	paperStamp->tf->m_vPos = Vec2(0, 0);
 
 	pBackBG = OBJECT.AddObject(Tag::BackGround);
-	pBackBG->ac<CSpriteRenderer>()->Init(SPRITE("Stage2BackBG"), SortingLayer::BackBG, RenderMode::Default);
+	pBackBG->ac<CSpriteRenderer>()->Init(SPRITE("Stage3BackBG"), SortingLayer::BackBG, RenderMode::Default);
 	pBackBG->tf->m_vPos = Vec2(WINSIZEX / 2, WINSIZEY / 2);
 
 	pFrontBG = OBJECT.AddObject(Tag::Untagged);
@@ -17,7 +17,7 @@ void CStage3Scene::Init()
 
 	pPlayer = OBJECT.AddObject(Tag::Player);
 	pPlayer->ac<Stage3Player>();
-	pPlayer->ac<CCollider>()->Init(40);
+	pPlayer->ac<CCollider>()->Init(30);
 	pPlayer->tf->m_vPos = Vec2(WINSIZEX / 2, ((WINSIZEY - TILESIZEY) / 2));
 
 	pBoss = OBJECT.AddObject(Tag::Boss);
@@ -25,8 +25,11 @@ void CStage3Scene::Init()
 	pBoss->ac<CCollider>()->Init(125);
 	pBoss->tf->m_vPos = Vec2(WINSIZEX / 2, WINSIZEY / 2);
 
-	ScoreText = OBJECT.AddObject(Tag::Stage2UI);
+	ScoreText = OBJECT.AddObject(Tag::Stage3UI);
 	ScoreText->ac<Stage3UI>();
+
+	CObject* cheatKey = OBJECT.AddObject(Tag::Untagged);
+	cheatKey->ac<CheatKey>();
 }
 
 void CStage3Scene::Update()

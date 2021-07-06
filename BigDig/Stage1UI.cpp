@@ -3,6 +3,8 @@
 
 void Stage1UI::Awake()
 {
+	GAME.m_playerLife = 3;
+
 	firstVal = OBJECT.AddObject(Tag::UI);
 	firstVal->ac<CSpriteRenderer>()->Init(SPRITE("number0"), SortingLayer::UI, RenderMode::UI);
 	firstVal->tf->m_vPos = Vec2(25, 35);
@@ -48,7 +50,7 @@ void Stage1UI::Awake()
 		heart3->tf->m_vPos = Vec2(WINSIZEX - 32, 32);
 	}
 
-	HeartUI();
+	//HeartUI();
 }
 
 void Stage1UI::Start()

@@ -24,7 +24,7 @@ public:
 private:
 	Stage1Player* player;
 	float leftTime = 0;
-	float rightTime = -2;
+	float rightTime = 2;
 	Vec2 lPlayerPos;
 	Vec2 rPlayerPos;
 	float bossPatternTime;

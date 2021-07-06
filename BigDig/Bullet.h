@@ -1,6 +1,7 @@
 #pragma once
 #include "CComponent.h"
-class Stage2BossArm : public CComponent
+class Bullet :
+    public CComponent
 {
     // CComponent을(를) 통해 상속됨
     virtual void Awake() override;
@@ -13,7 +14,16 @@ class Stage2BossArm : public CComponent
     virtual void OnCollisionStay(CObject* _pObj) override;
     virtual void OnCollisionExit(CObject* _pObj) override;
 
+public:
+    void Init(float _dir);
+    void Init(float _dir, Vec2 _pos);
+    void Init(float _dir, float _speed);
+    void Init(float _dir, float _speed, Vec2 _pos);
+
+
 private:
-    bool isStop = false;
+    float bulletDir;
+    float playerPos;
+    float bulletSpeed;
 };
 

@@ -25,10 +25,12 @@ private:
 	enum MoveRot { None, Up, Down, Left, Right };
 	MoveRot moveRot = None;
 	int gridTemp[TILESIZEX][TILESIZEY];
+	bool isinvincibility = false;
+	float invincibilityTime = 0;
 
 public:
 	bool isHit = false;
-	int moveSpeed = 7;
+	int moveSpeed = 3;
 
 private:
 	void Move();

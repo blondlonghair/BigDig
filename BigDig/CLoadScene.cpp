@@ -20,8 +20,8 @@ void CLoadScene::Init()
 	LoadSprite("Stage2BackBG", "뒤배경2");
 	LoadSprite("Stage3FrontBG", "배경3");
 	LoadSprite("Stage3BackBG", "뒤배경3");
-	LoadSprite("Button", "뱀");
 	LoadSprite("Stage1Boss", "우는거인");
+	LoadSprite("Stage2Boss", "뱀");
 	LoadSprite("임시배경", "임시배경화면");
 	LoadSprite("rightHand", "오른손");
 	LoadSprite("leftHand", "왼손");
@@ -44,6 +44,7 @@ void CLoadScene::Init()
 	LoadSprite("continueText", "TitleContinueText");
 	LoadSprite("flippedLeftHand", "왼손_flip");
 	LoadSprite("flippedRightHand", "오른손_flip");
+	LoadSprite("Bullet", "Bullet");
 }
 
 void CLoadScene::Update()

@@ -25,7 +25,7 @@ void CStage2Scene::Init()
 
 	pPlayer = OBJECT.AddObject(Tag::Player);
 	pPlayer->ac<Stage2Player>();
-	pPlayer->ac<CCollider>()->Init(40);
+	pPlayer->ac<CCollider>()->Init(30);
 	pPlayer->tf->m_vPos = Vec2(WINSIZEX / 2, ((WINSIZEY - TILESIZEY) / 2));
 
 	pBoss = OBJECT.AddObject(Tag::Boss);
@@ -35,6 +35,9 @@ void CStage2Scene::Init()
 
 	ScoreText = OBJECT.AddObject(Tag::Stage2UI);
 	ScoreText->ac<Stage2UI>();
+
+	CObject* cheatKey = OBJECT.AddObject(Tag::Untagged);
+	cheatKey->ac<CheatKey>();
 }
 
 void CStage2Scene::Update()
