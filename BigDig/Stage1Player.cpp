@@ -40,12 +40,14 @@ void Stage1Player::Update()
 		tf->gc<CCollider>()->m_bEnable = false;
 		isinvincibility = true;
 		isHit = false;
+		CAMERA.m_ShakeForce = 100;
 	}
 
 	if (isinvincibility)
 	{
 		invincibilityTime += dt;
 		if (invincibilityTime < 0.5) { tf->gc<CSpriteRenderer>()->m_Color.a = 0.5; }
+		if (invincibilityTime >= 0.2) { CAMERA.SetShake(); }
 		if (invincibilityTime >= 0.5 && invincibilityTime < 1) { tf->gc<CSpriteRenderer>()->m_Color.a = 1; }
 		if (invincibilityTime >= 1 && invincibilityTime < 1.5) { tf->gc<CSpriteRenderer>()->m_Color.a = 0.5; }
 		if (invincibilityTime >= 1.5)
@@ -93,7 +95,12 @@ void Stage1Player::Move()
 
 	if (INPUT.KeyDown(VK_UP))
 	{
-		if (moveRot != MoveRot::Down)
+		if (moveRot != MoveRot::Down && GAME.m_Stage1Tile[xTemp][yTemp] != 1)
+		{
+			moveRot = MoveRot::Up;
+		}
+
+		if (GAME.m_Stage1Tile[xTemp][yTemp] == 1)
 		{
 			moveRot = MoveRot::Up;
 		}
@@ -101,7 +108,12 @@ void Stage1Player::Move()
 
 	if (INPUT.KeyDown(VK_DOWN))
 	{
-		if (moveRot != MoveRot::Up)
+		if (moveRot != MoveRot::Up && GAME.m_Stage1Tile[xTemp][yTemp] != 1)
+		{
+			moveRot = MoveRot::Down;
+		}
+
+		if (GAME.m_Stage1Tile[xTemp][yTemp] == 1)
 		{
 			moveRot = MoveRot::Down;
 		}
@@ -109,7 +121,12 @@ void Stage1Player::Move()
 
 	if (INPUT.KeyDown(VK_LEFT))
 	{
-		if (moveRot != MoveRot::Right)
+		if (moveRot != MoveRot::Right && GAME.m_Stage1Tile[xTemp][yTemp] != 1)
+		{
+			moveRot = MoveRot::Left;
+		}
+
+		if (GAME.m_Stage1Tile[xTemp][yTemp] == 1)
 		{
 			moveRot = MoveRot::Left;
 		}
@@ -117,7 +134,12 @@ void Stage1Player::Move()
 
 	if (INPUT.KeyDown(VK_RIGHT))
 	{
-		if (moveRot != MoveRot::Left)
+		if (moveRot != MoveRot::Left && GAME.m_Stage1Tile[xTemp][yTemp] != 1)
+		{
+			moveRot = MoveRot::Right;
+		}
+
+		if (GAME.m_Stage1Tile[xTemp][yTemp] == 1)
 		{
 			moveRot = MoveRot::Right;
 		}
@@ -218,7 +240,7 @@ void Stage1Player::Move()
 
 
 
-	if (moveRot == MoveRot::Up && GAME.m_Stage1Tile[xTemp][yTemp] != 1)
+	if (moveRot == MoveRot::Up && GAME.m_Stage1Tile[xTemp][yTemp] != 1 && MoveCheck2())
 	{
 		for (int i = 0; i < moveSpeed - 1; i++)
 		{
@@ -236,14 +258,9 @@ void Stage1Player::Move()
 			{
 				tf->m_vPos += Vec2(0, 1);
 			}
-			if (!MoveCheck2())
-			{
-				tf->m_vPos += Vec2(0, 1);
-				GAME.m_Stage1Tile[xTemp][yTemp - 1] = 0;
-			}
 		}
 	}
-	else if (moveRot == MoveRot::Down && GAME.m_Stage1Tile[xTemp][yTemp] != 1)
+	else if (moveRot == MoveRot::Down && GAME.m_Stage1Tile[xTemp][yTemp] != 1 && MoveCheck2())
 	{
 		for (int i = 0; i < moveSpeed - 1; i++)
 		{
@@ -261,14 +278,9 @@ void Stage1Player::Move()
 			{
 				tf->m_vPos += Vec2(0, -1);
 			}
-			if (!MoveCheck2())
-			{
-				tf->m_vPos += Vec2(0, -1);
-				GAME.m_Stage1Tile[xTemp][yTemp + 1] = 0;
-			}
 		}
 	}
-	else if (moveRot == MoveRot::Left && GAME.m_Stage1Tile[xTemp][yTemp] != 1)
+	else if (moveRot == MoveRot::Left && GAME.m_Stage1Tile[xTemp][yTemp] != 1 && MoveCheck2())
 	{
 		for (int i = 0; i < moveSpeed - 1; i++)
 		{
@@ -286,14 +298,9 @@ void Stage1Player::Move()
 			{
 				tf->m_vPos += Vec2(1, 0);
 			}
-			if (!MoveCheck2())
-			{
-				tf->m_vPos += Vec2(1, 0);
-				GAME.m_Stage1Tile[xTemp - 1][yTemp] = 0;
-			}
 		}
 	}
-	else if (moveRot == MoveRot::Right && GAME.m_Stage1Tile[xTemp][yTemp] != 1)
+	else if (moveRot == MoveRot::Right && GAME.m_Stage1Tile[xTemp][yTemp] != 1 && MoveCheck2())
 	{
 		for (int i = 0; i < moveSpeed - 1; i++)
 		{
@@ -310,11 +317,6 @@ void Stage1Player::Move()
 			else if (!MoveCheck1())
 			{
 				tf->m_vPos += Vec2(-1, 0);
-			}
-			if (!MoveCheck2())
-			{
-				tf->m_vPos += Vec2(-1, 0);
-				GAME.m_Stage1Tile[xTemp + 1][yTemp] = 0;
 			}
 		}
 	}

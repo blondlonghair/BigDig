@@ -14,13 +14,11 @@ void Stage3Boss::Start()
 	leftHand = OBJECT.AddObject(Tag::Boss);
 	leftHand->ac<CSpriteRenderer>()->Init(SPRITE("leftHand"), SortingLayer::Default, RenderMode::Default);
 	leftHand->ac<CCollider>()->Init(90);
-	leftHand->ac<Stage3BossArm>();
 	leftHand->tf->m_vPos = Vec2(WINSIZEX / 2 - 300, WINSIZEY / 2);
 
 	rightHand = OBJECT.AddObject(Tag::Boss);
 	rightHand->ac<CSpriteRenderer>()->Init(SPRITE("rightHand"), SortingLayer::Default, RenderMode::Default);
 	rightHand->ac<CCollider>()->Init(90);
-	rightHand->ac<Stage3BossArm>();
 	rightHand->tf->m_vPos = Vec2(WINSIZEX / 2 + 300, WINSIZEY / 2);
 }
 
@@ -29,7 +27,6 @@ void Stage3Boss::Update()
 	if (GAME.isStart)
 	{
 		bossPatternTime += dt;
-
 
 		if (bossPatternTime >= 5)
 		{

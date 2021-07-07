@@ -29,21 +29,25 @@ void Stage2Player::Update()
 	{
 		Move();
 	}
+
 	if (isHit)
 	{
 		GoBack();
+
 		GAME.m_playerLife--;
 		CObject* stage2UI = OBJECT.Find(Tag::Stage2UI);
 		stage2UI->gc<Stage2UI>()->HeartUI();
 		tf->gc<CCollider>()->m_bEnable = false;
 		isinvincibility = true;
 		isHit = false;
+		CAMERA.m_ShakeForce = 100;
 	}
 
 	if (isinvincibility)
 	{
 		invincibilityTime += dt;
 		if (invincibilityTime < 0.5) { tf->gc<CSpriteRenderer>()->m_Color.a = 0.5; }
+		if (invincibilityTime >= 0.2) { CAMERA.SetShake(); }
 		if (invincibilityTime >= 0.5 && invincibilityTime < 1) { tf->gc<CSpriteRenderer>()->m_Color.a = 1; }
 		if (invincibilityTime >= 1 && invincibilityTime < 1.5) { tf->gc<CSpriteRenderer>()->m_Color.a = 0.5; }
 		if (invincibilityTime >= 1.5)

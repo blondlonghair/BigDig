@@ -13,13 +13,11 @@ void Stage1Boss::Start()
 	leftHand = OBJECT.AddObject(Tag::Boss);
 	leftHand->ac<CSpriteRenderer>()->Init(SPRITE("leftHand"), SortingLayer::Default, RenderMode::Default);
 	leftHand->ac<CCollider>()->Init(90);
-	leftHand->ac<Stage1BossArm>();
 	leftHand->tf->m_vPos = Vec2(WINSIZEX / 2 - 300, WINSIZEY / 2);
 
 	rightHand = OBJECT.AddObject(Tag::Boss);
 	rightHand->ac<CSpriteRenderer>()->Init(SPRITE("rightHand"), SortingLayer::Default, RenderMode::Default);
 	rightHand->ac<CCollider>()->Init(90);
-	rightHand->ac<Stage1BossArm>();
 	rightHand->tf->m_vPos = Vec2(WINSIZEX / 2 + 300, WINSIZEY / 2);
 }
 
@@ -69,9 +67,6 @@ void Stage1Boss::OnCollisionExit(CObject* _pObj)
 {
 }
 
-float X = 0;
-float Y = 0;
-float scale = 600;
 void Stage1Boss::Pattern1()
 {
 	scale += dt * 500;

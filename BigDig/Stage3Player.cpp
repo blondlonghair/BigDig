@@ -29,26 +29,28 @@ void Stage3Player::Update()
 	{
 		Move();
 	}
+
 	if (isHit)
 	{
 		GoBack();
+
 		GAME.m_playerLife--;
 		CObject* stage3UI = OBJECT.Find(Tag::Stage3UI);
 		stage3UI->gc<Stage3UI>()->HeartUI();
 		tf->gc<CCollider>()->m_bEnable = false;
 		isinvincibility = true;
 		isHit = false;
+		CAMERA.m_ShakeForce = 100;
 	}
 
 	if (isinvincibility)
 	{
 		invincibilityTime += dt;
 		if (invincibilityTime < 0.5) { tf->gc<CSpriteRenderer>()->m_Color.a = 0.5; }
+		if (invincibilityTime >= 0.2) { CAMERA.SetShake(); }
 		if (invincibilityTime >= 0.5 && invincibilityTime < 1) { tf->gc<CSpriteRenderer>()->m_Color.a = 1; }
 		if (invincibilityTime >= 1 && invincibilityTime < 1.5) { tf->gc<CSpriteRenderer>()->m_Color.a = 0.5; }
-		if (invincibilityTime >= 1.5 && invincibilityTime < 2) { tf->gc<CSpriteRenderer>()->m_Color.a = 1; }
-		if (invincibilityTime >= 2 && invincibilityTime < 2.5) { tf->gc<CSpriteRenderer>()->m_Color.a = 0.5; }
-		if (invincibilityTime >= 2.5)
+		if (invincibilityTime >= 1.5)
 		{
 			tf->gc<CCollider>()->m_bEnable = true;
 			tf->gc<CSpriteRenderer>()->m_Color.a = 1;
@@ -91,10 +93,40 @@ void Stage3Player::Move()
 	int xTemp = tf->m_vPos.x - ((WINSIZEX - TILESIZEX) / 2);
 	int yTemp = tf->m_vPos.y - ((WINSIZEY - TILESIZEY) / 2);
 
+	if (INPUT.KeyDown(VK_UP))
+	{
+		if (moveRot != MoveRot::Down)
+		{
+			moveRot = MoveRot::Up;
+		}
+	}
+
+	if (INPUT.KeyDown(VK_DOWN))
+	{
+		if (moveRot != MoveRot::Up)
+		{
+			moveRot = MoveRot::Down;
+		}
+	}
+
+	if (INPUT.KeyDown(VK_LEFT))
+	{
+		if (moveRot != MoveRot::Right)
+		{
+			moveRot = MoveRot::Left;
+		}
+	}
+
+	if (INPUT.KeyDown(VK_RIGHT))
+	{
+		if (moveRot != MoveRot::Left)
+		{
+			moveRot = MoveRot::Right;
+		}
+	}
+
 	if (INPUT.KeyPress(VK_UP))
 	{
-		moveRot = MoveRot::Up;
-
 		for (int i = 0; i < moveSpeed; i++)
 		{
 			if (GAME.m_Stage3Tile[xTemp][yTemp] == 1)
@@ -118,8 +150,6 @@ void Stage3Player::Move()
 	}
 	if (INPUT.KeyPress(VK_DOWN))
 	{
-		moveRot = MoveRot::Down;
-
 		for (int i = 0; i < moveSpeed; i++)
 		{
 			if (GAME.m_Stage3Tile[xTemp][yTemp] == 1)
@@ -143,8 +173,6 @@ void Stage3Player::Move()
 	}
 	if (INPUT.KeyPress(VK_RIGHT))
 	{
-		moveRot = MoveRot::Right;
-
 		for (int i = 0; i < moveSpeed; i++)
 		{
 			if (GAME.m_Stage3Tile[xTemp][yTemp] == 1)
@@ -168,8 +196,6 @@ void Stage3Player::Move()
 	}
 	if (INPUT.KeyPress(VK_LEFT))
 	{
-		moveRot = MoveRot::Left;
-
 		for (int i = 0; i < moveSpeed; i++)
 		{
 			if (GAME.m_Stage3Tile[xTemp][yTemp] == 1)

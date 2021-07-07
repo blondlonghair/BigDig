@@ -41,6 +41,7 @@ void CLoadScene::Init()
 	LoadSprite("number9", "숫자/9");
 	LoadSprite("Persent", "숫자/Persent");
 	LoadSprite("Heart", "heart");
+	LoadSprite("BrokenHeart", "brokenHeart");
 	LoadSprite("continueText", "TitleContinueText");
 	LoadSprite("flippedLeftHand", "왼손_flip");
 	LoadSprite("flippedRightHand", "오른손_flip");

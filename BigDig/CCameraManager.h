@@ -19,7 +19,7 @@ public:
 	float m_ScaleTo;
 
 	Vec2  m_vShakePos;
-	float m_ShakeForce = 0;
+	float m_ShakeForce;
 	float m_ShakeTime;
 public:
 	// 행렬 재셋팅
@@ -30,7 +30,7 @@ public:
 
 	void SetScale(float _Scale);
 
-	void SetShake(float _ShakeForce, float _ShakeTime);
+	void SetShake();
 };
 
 #define CAMERA (*CCameraManager::GetInstance())

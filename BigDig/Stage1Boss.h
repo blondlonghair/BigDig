@@ -22,6 +22,9 @@ public:
 public:
 	CObject *leftHand, *rightHand;
 private:
+	float X = 0;
+	float Y = 0;
+	float scale = 600;
 	Stage1Player* player;
 	float leftTime = 0;
 	float rightTime = 2;

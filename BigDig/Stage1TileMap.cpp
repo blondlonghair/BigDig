@@ -46,6 +46,7 @@ void Stage1TileMap::Update()
 {
 	if (GAME.m_playerLife <= 0)
 	{
+		CAMERA.SetShake();
 		SCENE.ChangeScene("TITLE");
 		GAME.m_playerLife = 3;
 	}

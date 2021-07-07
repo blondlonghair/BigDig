@@ -8,6 +8,7 @@ CCameraManager::CCameraManager()
     m_vPos = Vec2(WINSIZEX / 2, WINSIZEY / 2);
     m_vShakePos = Vec2(0, 0);
     m_Scale = m_ScaleTo = 1;
+    m_ShakeForce = 0;
 
     // 투영행렬 뷰행렬 셋팅
     //D3DXMatrixPerspectiveFovLH(&m_matProj, D3DX_PI / 4.f, 16.f/9.f,1.f,10000000000.f); // 왼손좌표계를 기준으로 원근투영행렬을 셋팅함
@@ -64,8 +65,10 @@ void CCameraManager::SetScale(float _Scale)
     m_ScaleTo = _Scale;
 }
 
-void CCameraManager::SetShake(float _ShakeForce, float _ShakeTime)
+void CCameraManager::SetShake()
 {
-    m_ShakeForce = _ShakeForce;
-    m_ShakeTime = _ShakeTime;
+    m_vPos = Vec2(WINSIZEX / 2, WINSIZEY / 2);
+    m_vShakePos = Vec2(0, 0);
+    m_Scale = m_ScaleTo = 1;
+    m_ShakeForce = 0;
 }

@@ -392,7 +392,6 @@
     <ClCompile Include="CStage3Scene.cpp" />
     <ClCompile Include="PaperAndStamp.cpp" />
     <ClCompile Include="Stage1Boss.cpp" />
-    <ClCompile Include="Stage1BossArm.cpp" />
     <ClCompile Include="Stage1UI.cpp" />
     <ClCompile Include="Stage1TileMap.cpp" />
     <ClCompile Include="Stage2Boss.cpp" />
@@ -400,7 +399,6 @@
     <ClCompile Include="Stage2UI.cpp" />
     <ClCompile Include="Stage2TileMap.cpp" />
     <ClCompile Include="Stage3Boss.cpp" />
-    <ClCompile Include="Stage3BossArm.cpp" />
     <ClCompile Include="Stage3Player.cpp" />
     <ClCompile Include="Stage3TileMap.cpp" />
     <ClCompile Include="Stage3UI.cpp" />
@@ -412,7 +410,6 @@
     <ClInclude Include="CStage3Scene.h" />
     <ClInclude Include="PaperAndStamp.h" />
     <ClInclude Include="Stage1Boss.h" />
-    <ClInclude Include="Stage1BossArm.h" />
     <ClInclude Include="Stage1UI.h" />
     <ClInclude Include="Stage1TileMap.h" />
     <ClInclude Include="Stage2Boss.h" />
@@ -420,7 +417,6 @@
     <ClInclude Include="Stage2UI.h" />
     <ClInclude Include="Stage2TileMap.h" />
     <ClInclude Include="Stage3Boss.h" />
-    <ClInclude Include="Stage3BossArm.h" />
     <ClInclude Include="Stage3Player.h" />
     <ClInclude Include="Stage3TileMap.h" />
     <ClInclude Include="Stage3UI.h" />

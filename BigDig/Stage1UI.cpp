@@ -21,33 +21,45 @@ void Stage1UI::Awake()
 	{
 		heart1 = OBJECT.AddObject(Tag::UI);
 		heart1->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
-		heart1->tf->m_vPos = Vec2(WINSIZEX - 32 - 64 - 64 - 10 - 10, 32);
+		heart1->tf->m_vPos = Vec2(WINSIZEX - 100 - 100 - 50, 34);
 
 		heart2 = OBJECT.AddObject(Tag::UI);
 		heart2->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
-		heart2->tf->m_vPos = Vec2(WINSIZEX - 32 - 64 - 10, 32);
+		heart2->tf->m_vPos = Vec2(WINSIZEX - 100 - 50, 34);
 
 		heart3 = OBJECT.AddObject(Tag::UI);
 		heart3->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
-		heart3->tf->m_vPos = Vec2(WINSIZEX - 32, 32);
+		heart3->tf->m_vPos = Vec2(WINSIZEX - 50, 34);
 	}
 
 	if (GAME.m_playerLife == 2)
 	{
+		heart1 = OBJECT.AddObject(Tag::UI);
+		heart1->ac<CSpriteRenderer>()->Init(SPRITE("BorkenHeart"), SortingLayer::UI, RenderMode::UI);
+		heart1->tf->m_vPos = Vec2(WINSIZEX - 100 - 100 - 50, 34);
+
 		heart2 = OBJECT.AddObject(Tag::UI);
 		heart2->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
-		heart2->tf->m_vPos = Vec2(WINSIZEX - 32 - 64 - 10, 32);
+		heart2->tf->m_vPos = Vec2(WINSIZEX - 100 - 50, 34);
 
 		heart3 = OBJECT.AddObject(Tag::UI);
 		heart3->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
-		heart3->tf->m_vPos = Vec2(WINSIZEX - 32, 32);
+		heart3->tf->m_vPos = Vec2(WINSIZEX - 50, 34);
 	}
 
 	if (GAME.m_playerLife == 1)
 	{
+		heart1 = OBJECT.AddObject(Tag::UI);
+		heart1->ac<CSpriteRenderer>()->Init(SPRITE("BorkenHeart"), SortingLayer::UI, RenderMode::UI);
+		heart1->tf->m_vPos = Vec2(WINSIZEX - 100 - 100 - 50, 34);
+
+		heart2 = OBJECT.AddObject(Tag::UI);
+		heart2->ac<CSpriteRenderer>()->Init(SPRITE("BrokenHeart"), SortingLayer::UI, RenderMode::UI);
+		heart2->tf->m_vPos = Vec2(WINSIZEX - 100 - 50, 34);
+
 		heart3 = OBJECT.AddObject(Tag::UI);
 		heart3->ac<CSpriteRenderer>()->Init(SPRITE("Heart"), SortingLayer::UI, RenderMode::UI);
-		heart3->tf->m_vPos = Vec2(WINSIZEX - 32, 32);
+		heart3->tf->m_vPos = Vec2(WINSIZEX - 50, 34);
 	}
 
 	//HeartUI();
@@ -150,13 +162,13 @@ void Stage1UI::HeartUI()
 	case 3:
 		break;
 	case 2:
-		heart1->Destroy();
+		heart1->gc<CSpriteRenderer>()->m_pSprite = SPRITE("BrokenHeart");
 		break;
 	case 1:
-		heart2->Destroy();
+		heart2->gc<CSpriteRenderer>()->m_pSprite = SPRITE("BrokenHeart");
 		break;
 	case 0:
-		heart3->Destroy();
+		heart3->gc<CSpriteRenderer>()->m_pSprite = SPRITE("BrokenHeart");
 		break;
 	}
 }
