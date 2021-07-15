@@ -21,10 +21,6 @@ void CTitleScene::Init()
 	titleText->ac<CSpriteRenderer>()->Init(SPRITE("TitleText"), SortingLayer::Default, RenderMode::Default);
 	titleText->tf->m_vPos = Vec2(WINSIZEX / 2, WINSIZEY / 2);
 
-	//CObject* playButton = OBJECT.AddObject(Tag::UI);
-	//playButton->ac<CButton>()->Init(Vec2(WINSIZEX / 2, WINSIZEY / 2),
-	//	Vec2(1, 1), SPRITE("Button"), [=]()->void { SCENE.ChangeScene("STAGE1"); });
-
 	CObject* keyPressObj = OBJECT.AddObject(Tag::Untagged);
 	keyPressObj->ac<TitleScript>();
 
@@ -34,6 +30,7 @@ void CTitleScene::Init()
 
 	CObject* cheatKey = OBJECT.AddObject(Tag::Untagged);
 	cheatKey->ac<CheatKey>();
+
 }
 
 void CTitleScene::Update()

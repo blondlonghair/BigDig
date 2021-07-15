@@ -15,6 +15,9 @@
 #include <queue>
 #include <cstdarg>
 #include <cstdlib>
+#include <Mmsystem.h>
+#include <mciapi.h>
+#pragma comment(lib, "Winmm.lib")
 
 // 기본적으로 사용하는 STL및 C++
 
@@ -32,7 +35,7 @@ using Color = D3DXCOLOR;
 // 기본적인 default값 변수들
 const int WINSIZEX = 1920;  // 프로그램 X사이즈
 const int WINSIZEY = 1080;   // 프로그램 Y사이즈
-const bool WINDOWED = true; // 창모드로 할 것인가 ?
+const bool WINDOWED = false; // 창모드로 할 것인가 ?
 
 const int TILESIZEX = 1800;
 const int TILESIZEY = 960;
@@ -195,6 +198,7 @@ using namespace math; // 위에 std랑 같음
 //공용
 #include "PaperAndStamp.h"
 #include "Bullet.h"
+#include "Bullet2.h"
 #include "CheatKey.h"
 
 //타이틀 화면

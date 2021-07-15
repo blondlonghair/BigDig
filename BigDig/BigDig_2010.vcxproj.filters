@@ -307,6 +307,9 @@
     <ClCompile Include="CheatKey.cpp">
       <Filter>002 : Game\Component\Communal</Filter>
     </ClCompile>
+    <ClCompile Include="Bullet2.cpp">
+      <Filter>002 : Game\Component\Communal</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -442,6 +445,9 @@
       <Filter>002 : Game\Component\Communal</Filter>
     </ClInclude>
     <ClInclude Include="CheatKey.h">
+      <Filter>002 : Game\Component\Communal</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet2.h">
       <Filter>002 : Game\Component\Communal</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,6 +19,10 @@ public:
 	void Pattern1();
 	void Pattern2();
 	void Pattern3();
+
+	void BP1();
+	void BP2();
+	void BP3();
 public:
 	CObject* leftHand, * rightHand;
 private:
@@ -35,5 +39,20 @@ private:
 	float X = 0;
 	float Y = 0;
 	float scale = 600;
+
+	float BPTime = -2.5;
+	bool isBP = false;
+	int nextBP = 1;
+
+	float P1Time = 0;
+	float P1Time_2 = -0.25;
+	bool isP1;
+	bool isP1_2;
+
+	float P2Time = 0;
+	float P2Dir = 0;
+
+	float P3Time = 0;
+	Vec2 meteorPos;
 };
 

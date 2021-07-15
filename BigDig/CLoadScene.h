@@ -34,5 +34,6 @@ private:
 	/// <param name="_Path">주소 값 (ex : Player)</param>
 	/// <param name="_iCount">개수 (애니메이션 일경우 개수 추가)</param>
 	void LoadSprite(string _Key, string _Path, int _iCount = 0);
+	void LoadSound(string _Key, string _Path);
 };
 

@@ -12,19 +12,6 @@ void Stage1Player::Start()
 
 void Stage1Player::Update()
 {
-	if (INPUT.KeyDown(VK_F1))
-	{
-		for (int x = 0; x < TILESIZEX; x++)
-		{
-			for (int y = 0; y < TILESIZEY; y++)
-			{
-				gridTemp[x][y] = GAME.m_Stage1Tile[x][y];
-			}
-		}
-
-		DXUTOutputDebugStringA("dmd");
-	}
-
 	if (!isHit && GAME.isStart)
 	{
 		Move();
@@ -41,6 +28,7 @@ void Stage1Player::Update()
 		isinvincibility = true;
 		isHit = false;
 		CAMERA.m_ShakeForce = 100;
+		//CAMERA.m_ShakeTime = 5;
 	}
 
 	if (isinvincibility)

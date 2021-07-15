@@ -11,6 +11,11 @@ void CheatKey::Start()
 
 void CheatKey::Update()
 {
+	if (INPUT.KeyDown(VK_F1))
+	{
+		GAME.m_playerLife = 3;
+	}
+
 	if (INPUT.KeyDown(VK_F5))
 	{
 		SCENE.ChangeScene("STAGE1");

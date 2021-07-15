@@ -13,22 +13,27 @@ CLoadScene::~CLoadScene()
 
 void CLoadScene::Init()
 {
-	LoadSprite("PLAYER", "디그민1");
 	LoadSprite("Stage1FrontBG", "배경1");
 	LoadSprite("Stage1BackBG", "뒤배경1");
 	LoadSprite("Stage2FrontBG", "배경2");
 	LoadSprite("Stage2BackBG", "뒤배경2");
 	LoadSprite("Stage3FrontBG", "배경3");
 	LoadSprite("Stage3BackBG", "뒤배경3");
+	
+	LoadSprite("PLAYER", "디그민1");
 	LoadSprite("Stage1Boss", "우는거인");
 	LoadSprite("Stage2Boss", "뱀");
-	LoadSprite("임시배경", "임시배경화면");
-	LoadSprite("rightHand", "오른손");
 	LoadSprite("leftHand", "왼손");
+	LoadSprite("flippedLeftHand", "왼손_flip");
+	LoadSprite("rightHand", "오른손");
+	LoadSprite("flippedRightHand", "오른손_flip");
+	
 	LoadSprite("stamp", "도장/도장", 12);
 	LoadSprite("papers", "서류와 테이프/서류와 테이프", 10);
 	LoadSprite("TitleText", "TitleText");
 	LoadSprite("TitleBG", "TitleBG");
+	LoadSprite("Persent", "숫자/Persent");
+
 	LoadSprite("number0", "숫자/0");
 	LoadSprite("number1", "숫자/1");
 	LoadSprite("number2", "숫자/2");
@@ -39,13 +44,12 @@ void CLoadScene::Init()
 	LoadSprite("number7", "숫자/7");
 	LoadSprite("number8", "숫자/8");
 	LoadSprite("number9", "숫자/9");
-	LoadSprite("Persent", "숫자/Persent");
+	
 	LoadSprite("Heart", "heart");
 	LoadSprite("BrokenHeart", "brokenHeart");
 	LoadSprite("continueText", "TitleContinueText");
-	LoadSprite("flippedLeftHand", "왼손_flip");
-	LoadSprite("flippedRightHand", "오른손_flip");
-	LoadSprite("Bullet", "Bullet");
+	LoadSprite("Bullet", "Bullet1");
+	LoadSprite("Bullet2", "Bullet2");
 }
 
 void CLoadScene::Update()

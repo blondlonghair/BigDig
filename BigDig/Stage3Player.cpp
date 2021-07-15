@@ -12,19 +12,6 @@ void Stage3Player::Start()
 
 void Stage3Player::Update()
 {
-	if (INPUT.KeyDown(VK_F1))
-	{
-		for (int x = 0; x < TILESIZEX; x++)
-		{
-			for (int y = 0; y < TILESIZEY; y++)
-			{
-				gridTemp[x][y] = GAME.m_Stage3Tile[x][y];
-			}
-		}
-
-		DXUTOutputDebugStringA("dmd");
-	}
-
 	if (!isHit && GAME.isStart)
 	{
 		Move();
@@ -220,7 +207,7 @@ void Stage3Player::Move()
 
 
 
-	if (moveRot == MoveRot::Up && GAME.m_Stage3Tile[xTemp][yTemp] != 1)
+	if (moveRot == MoveRot::Up && GAME.m_Stage3Tile[xTemp][yTemp] != 1 && MoveCheck2())
 	{
 		for (int i = 0; i < moveSpeed - 1; i++)
 		{
@@ -238,14 +225,9 @@ void Stage3Player::Move()
 			{
 				tf->m_vPos += Vec2(0, 1);
 			}
-			if (!MoveCheck2())
-			{
-				tf->m_vPos += Vec2(0, 1);
-				GAME.m_Stage3Tile[xTemp][yTemp - 1] = 0;
-			}
 		}
 	}
-	else if (moveRot == MoveRot::Down && GAME.m_Stage3Tile[xTemp][yTemp] != 1)
+	else if (moveRot == MoveRot::Down && GAME.m_Stage3Tile[xTemp][yTemp] != 1 && MoveCheck2())
 	{
 		for (int i = 0; i < moveSpeed - 1; i++)
 		{
@@ -263,14 +245,9 @@ void Stage3Player::Move()
 			{
 				tf->m_vPos += Vec2(0, -1);
 			}
-			if (!MoveCheck2())
-			{
-				tf->m_vPos += Vec2(0, -1);
-				GAME.m_Stage3Tile[xTemp][yTemp + 1] = 0;
-			}
 		}
 	}
-	else if (moveRot == MoveRot::Left && GAME.m_Stage3Tile[xTemp][yTemp] != 1)
+	else if (moveRot == MoveRot::Left && GAME.m_Stage3Tile[xTemp][yTemp] != 1 && MoveCheck2())
 	{
 		for (int i = 0; i < moveSpeed - 1; i++)
 		{
@@ -288,14 +265,9 @@ void Stage3Player::Move()
 			{
 				tf->m_vPos += Vec2(1, 0);
 			}
-			if (!MoveCheck2())
-			{
-				tf->m_vPos += Vec2(1, 0);
-				GAME.m_Stage3Tile[xTemp - 1][yTemp] = 0;
-			}
 		}
 	}
-	else if (moveRot == MoveRot::Right && GAME.m_Stage3Tile[xTemp][yTemp] != 1)
+	else if (moveRot == MoveRot::Right && GAME.m_Stage3Tile[xTemp][yTemp] != 1 && MoveCheck2())
 	{
 		for (int i = 0; i < moveSpeed - 1; i++)
 		{
@@ -312,11 +284,6 @@ void Stage3Player::Move()
 			else if (!MoveCheck1())
 			{
 				tf->m_vPos += Vec2(-1, 0);
-			}
-			if (!MoveCheck2())
-			{
-				tf->m_vPos += Vec2(-1, 0);
-				GAME.m_Stage3Tile[xTemp + 1][yTemp] = 0;
 			}
 		}
 	}

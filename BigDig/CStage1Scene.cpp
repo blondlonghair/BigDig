@@ -1,5 +1,10 @@
 #include "DXUT.h"
 #include "CStage1Scene.h"
+#include <Mmsystem.h>
+#include <mciapi.h>
+//these two headers are already included in the <Windows.h> header
+#pragma comment(lib, "Winmm.lib")
+
 
 CStage1Scene::CStage1Scene()
 {
@@ -12,6 +17,7 @@ CStage1Scene::~CStage1Scene()
 void CStage1Scene::Init()
 {
 	GAME.Reset();
+	
 	paperStamp = OBJECT.AddObject(Tag::Untagged);
 	paperStamp->ac<PaperAndStamp>();
 	paperStamp->tf->m_vPos = Vec2(0, 0);

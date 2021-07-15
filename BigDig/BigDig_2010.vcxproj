@@ -387,6 +387,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Bullet2.cpp" />
     <ClCompile Include="CheatKey.cpp" />
     <ClCompile Include="CStage2Scene.cpp" />
     <ClCompile Include="CStage3Scene.cpp" />
@@ -405,6 +406,7 @@
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TitleScript.cpp" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Bullet2.h" />
     <ClInclude Include="CheatKey.h" />
     <ClInclude Include="CStage2Scene.h" />
     <ClInclude Include="CStage3Scene.h" />
